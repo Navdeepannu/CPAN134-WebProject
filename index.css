@@ -24,27 +24,37 @@ body {
     text-decoration: none;
 }
 
+/* Navbar Right Styling */
 .navbar-right {
     display: flex;
     align-items: center;
 }
 
+/* Account and Cart Styling */
 .cart, .account {
+    display: flex;
+    align-items: center;
     padding: 10px 20px;
+
 }
 
+.account a, .cart a  {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Login and Create Account Styling */
 .login, .create_account {
     color: white;
     text-decoration: none;
 }
-
-
 
 .menu {
     color: white;
     text-decoration: none;
     padding: 10px 20px;
 }
+
 
 /* Main Body styling with CSS Grid */
 .grid-container {
