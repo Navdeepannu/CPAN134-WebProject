@@ -1,3 +1,4 @@
+/* Reset some basic elements */
 body, h1, h2, p, ul {
     margin: 0;
     padding: 0;
@@ -15,7 +16,6 @@ body {
     align-items: center;
     padding: 15px;
     background-color: #333;
-    margin-bottom: 40px;
 }
 
 /*Logo Styling */
@@ -24,27 +24,37 @@ body {
     text-decoration: none;
 }
 
+/* Navbar Right Styling */
 .navbar-right {
     display: flex;
     align-items: center;
 }
 
+/* Account and Cart Styling */
 .cart, .account {
+    display: flex;
+    align-items: center;
     padding: 10px 20px;
+
 }
 
+.account a, .cart a  {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Login and Create Account Styling */
 .login, .create_account {
     color: white;
     text-decoration: none;
 }
-
-
 
 .menu {
     color: white;
     text-decoration: none;
     padding: 10px 20px;
 }
+
 
 body{
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
