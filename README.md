@@ -1,5 +1,3 @@
-Certainly! Here's an updated version of the README with a contributors section:
-
 # BEN'S PIZZA
 
 Welcome to BEN'S PIZZA, where the love for pizza meets endless possibilities! This README provides an overview of our pizza website, including the structure of the main page and links to additional pages.
