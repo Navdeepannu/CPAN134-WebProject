@@ -63,24 +63,35 @@ background-color: #f5f5f5;
 .abouttext{
 text-align: center;
 margin-bottom: 40px;
+margin-top: 10px;
 }
 
 .staff{
     display: flex;
     justify-content:space-around;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    background-color: #f5f5f5;
+
+}
+img{
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(72, 71, 71, 1);
+}
+.navpic{
+  display: flex;
+  justify-content: center;
+
+
 }
 .titles{
     display: flex;
     justify-content: space-around;
-    color: white;
-    background-color: #333;
+    color: black;
+    margin-bottom: 10px;
+ 
 }
 h3{
     text-align: center;
-    color: white;
-    background-color: #333;
+    color: black;
+
 }
 
 footer {
