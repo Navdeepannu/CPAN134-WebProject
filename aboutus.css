@@ -69,18 +69,18 @@ margin-top: 10px;
 .staff{
     display: flex;
     justify-content:space-around;
+    padding-bottom: 5%;
 
 }
 img{
     border-radius: 30px;
     box-shadow: 0 0 10px rgba(72, 71, 71, 1);
+     max-width: 30%;
+    height: auto; 
+      
+      
 }
-.navpic{
-  display: flex;
-  justify-content: center;
 
-
-}
 .titles{
     display: flex;
     justify-content: space-around;
