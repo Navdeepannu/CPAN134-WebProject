@@ -28,17 +28,21 @@ body {
     background-color: #333;
 }
 
-/*Logo Styling */
-.logo {
-    color: white;
-    text-decoration: none;
-}
-
-/* Navbar Right Styling */
-.navbar-right {
+.nav-list {
+    list-style: none;
     display: flex;
     align-items: center;
 }
+
+.nav-list li {
+    margin-right: 20px; /* Remove if not needed*/
+}
+
+.logo a, .login, .create_account, .cart a{
+    color: white;
+    text-decoration: none;
+    padding: 10px 10px;  /* change after review */
+} 
 
 /* Account and Cart Styling */
 .cart, .account {
@@ -48,21 +52,27 @@ body {
 
 }
 
-.account a, .cart a  {
-    color: #fff;
-    text-decoration: none;
-}
 
-/* Login and Create Account Styling */
-.login, .create_account {
-    color: white;
-    text-decoration: none;
-}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 
-.menu {
-    color: white;
-    text-decoration: none;
-    padding: 10px 20px;
+    .navbar-right {
+        margin-top: 10px;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-list li {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
 }
 
 /* Main Body Section */

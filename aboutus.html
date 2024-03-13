@@ -10,26 +10,31 @@
 
     <!-- Navbar Section -->
     <nav class="navbar">
-        <a href="Index.html" class="logo"><h2>BEN'S PIZZA</h2></a>
-        
-        
-        <div class="navbar-right">
-            <a href="menu.html" class="menu">MENU</a>
-        
-                <div class="account">
-                    <img src="signin-logo.png"> <!--Login LOGO-->
-                    <a href="login.html" class="login">Login</a> <!--login.html link-->
-                </div>    
-                <div class="acccount">
-                    <img src="createaccount-logo.png"> <!--CREATE ACCOUNT LOGO-->
-                    <a href="createaccount.html" class="create_account">Create Account</a> <!--create-account.html link-->
-                </div>      
-            
-                <div class="cart">
-                    <img src="cart-logo.png">
-                    <a href="cart.html">Cart</a>
-                </div>
-        </div>
+        <ul class="nav-list">
+            <li class="logo"><a href="Index.html">BEN'S PIZZA</a></li>
+
+        </ul>
+
+        <!--    Navbar Right Section -->
+        <ul class="nav-list navbar-right">
+            <li class="account"> <a href="login.html" class="login">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    <span>Login</span>
+                </a>
+            </li>
+            <li class="account"><a href="createaccount.html" class="create_account">
+                    <i class="fas fa-user-plus"></i>
+                    <span>Create Account</span">
+                </a>
+            </li>
+
+            <li class="cart">
+                <a href="cart.html">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span>Cart</span>
+                </a>
+            </li>
+        </ul>
     </nav>
     
     <div class="abouttext">
