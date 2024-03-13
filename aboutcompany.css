@@ -86,6 +86,8 @@ background-color: #f5f5f5;
 display:list-item;
 padding: 10px;
 }
+
+/* Footer styling */
 footer {
     background-color: #333;
     color: white;
@@ -104,6 +106,10 @@ footer {
     margin-left: 20px;
 }
 
+footer li a {
+    text-decoration: none;
+    
+}
 .footer-links a{
     color: white;
     text-decoration: none;
@@ -121,8 +127,10 @@ footer {
     margin-right: 20px;
 }
 
-.social-media {
+.social-media img{
     margin-top: 10px;
+    height: 30px;
+    width: 30px;
 }
 
 .social-media img {
@@ -149,4 +157,3 @@ footer {
         margin-right: 0;
     }
 }
-
