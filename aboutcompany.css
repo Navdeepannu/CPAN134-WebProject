@@ -6,8 +6,18 @@ body, h1, h2, p, ul {
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f5f5f5;
+    background-image: url('shop.jpeg');
+    background-size: cover; /* Cover the entire background */
+    background-position: center; /* Center the background */
+    background-repeat: no-repeat; /* Do not repeat the background */
+    background-blend-mode: luminosity; 
+    color: white;
+      
 }
+
+
+
+
 
 /* Navbar styling */
 .navbar {
@@ -130,10 +140,3 @@ footer {
     }
 }
 
-.aboutus{
-    color: white;
-    text-decoration: none;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-}
