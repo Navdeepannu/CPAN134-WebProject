@@ -54,9 +54,9 @@ Our footer contains essential information and links:
   - And more!
 
 Follow us on social media:
-- Facebook: ![Facebook](facebook-logo.png)
-- Twitter: ![Twitter](twitter-logo.png)
-- Instagram: ![Instagram](instagram-logo.png)
+- Facebook: ![Facebook](Images/facebook.png)
+- Twitter: ![Twitter](Images/twitter.png)
+- Instagram: ![Instagram](Images/instagram.png)
 
 &copy; 2024 BEN'S PIZZA. All rights reserved.
 
