@@ -14,9 +14,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px;
-    background-color: #333;
+    background-color: #fff;
 }
+
 
 .nav-list {
     list-style: none;
@@ -24,24 +24,28 @@ body {
     align-items: center;
 }
 
-.nav-list li {
-    margin-right: 20px; /* Remove if not needed*/
+.logo {
+    font-size: 24px;
 }
-
+/*navbar links*/
 .logo a, .login, .create_account, .cart a{
-    color: white;
+    color: #333;
     text-decoration: none;
-    padding: 10px 10px;  /* change after review */
+    padding: 10px; 
 } 
+
+/* Hover effect on links in navbar */
+.navbar-right li:hover {
+    background-color: #f5f5f5;
+}
 
 /* Account and Cart Styling */
 .cart, .account {
     display: flex;
     align-items: center;
-    padding: 10px 20px;
+    padding: 10px
 
 }
-
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
@@ -65,10 +69,7 @@ body {
     }
 }
 
-body{
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-background-color: #f5f5f5;
-}
+
 .abouttext{
 text-align: center;
 margin-bottom: 40px;
@@ -103,80 +104,106 @@ h3{
 
 }
 
-/* Footer styling */
-footer {
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
 
-.footer-left {
-    display: flex;
-    align-items: center;
-}
-
-.footer-links {
-    margin-left: 20px;
-}
-
-footer li a {
-    text-decoration: none;
-    
-}
-.footer-links a{
-    color: white;
-    text-decoration: none;
-    margin-right: 10px;
-}
-
-.footer-right {
-    display: flex;
-    flex-grow: 2;
-    justify-content: space-between;
-}
-
-.footer-column {
-    flex-grow: 1;
-    margin-right: 20px;
-}
-
-.social-media img{
-    margin-top: 10px;
-    height: 30px;
-    width: 30px;
-}
-
-.social-media img {
-    margin-right: 10px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .navbar-right {
-        margin-top: 10px;
-    }
-
-    .footer-left, .footer-right {
-        flex-grow: 1;
-        margin-bottom: 20px;
-    }
-
-    .footer-column {
-        margin-right: 0;
-    }
-}
 .aboutus{
     color: white;
     text-decoration: none;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
+}
+
+
+/* Footer styling */
+footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #f5f5f5;
+    color: #333;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    align-items: baseline;
+}
+
+/* Style for main headings */
+.footer-left h3,
+.footer-column h3,
+.footer-right h3{
+    position: relative;
+    display: inline-block;
+    margin-right: 15px; 
+    padding-bottom: 5px;
+    color: #000;
+}
+
+/* Underline under the main headings */
+.footer-left h3::after,
+.footer-column h3::after,
+.footer-right h3::after {
+    content: '';
+    position: absolute;
+    background-color: #000;
+    bottom: 0;
+    left: 0;
+    width: 45%; /* Initially set to 0 */
+    height: 2px;
+    transition: width 0.3s cubic-bezier(0.25, 0.1, 0.2, 0.78);
+}
+
+/* Increase width on hover */
+.footer-left h3:hover::after,
+.footer-column h3:hover::after,
+.footer-right h3:hover::after {
+    width: 95%; /* Increase width to 95% on hover */
+}
+
+/* Space between columns */
+.footer-column {
+    margin-right: 30px; 
+}
+
+/* Style the links */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer ul li {
+    margin-bottom: 12px; /* Adjust spacing between links */
+}
+
+ul li a {
+    text-decoration: none;
+    color: #333; /* Change color as needed */
+}
+
+/* Display social media links in one line */
+.social-media {
+    display: flex;
+    align-items: center;
+}
+
+.social-media li {
+    margin-right: 20px; 
+}
+
+
+.copyright {
+    position:inherit ;
+    text-align: center;
+    width: 100%;
+    padding: 15px 0 15px 0;
+
+}
+/* Responsive styles */
+@media screen and (max-width: 455px) {
+    .footer-left,
+    .footer-column,
+    .footer-right {
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 20px;
+    }
 }

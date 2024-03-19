@@ -5,39 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Company infortmatiom</title>
     <link rel="stylesheet" href="aboutcompany.css">
+
+    <script src="https://kit.fontawesome.com/2127b2ef1e.js" crossorigin="anonymous"></script>  <!-- Font Awesome -->
+
 </head>
 <body>
+
+    <!-- Navbar Section --> 
+    <nav class="navbar">
+        <ul class="nav-list">
+            
+            <li class="logo">
+                <a href="Index.html"><span class="logo">BEN'S PIZZA</span></a>
+            </li>
+        </ul>
+
+        <!--    Navbar Right Section -->
+        <ul class="nav-list navbar-right">
+
+            <li class="account"> 
+                <a href="login.html" class="login">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    <span>Login</span>
+                </a>
+            </li>
+            <li class="account">
+                <a href="createaccount.html" class="create_account">
+                    <i class="fas fa-user-plus"></i>
+                    <span>Create Account</span">
+                </a>
+            </li>
+
+            <li class="cart">
+                <a href="cart.html">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span>Cart</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- About Company Section -->
     <div class="container">
-        
-        <!-- Navbar Section -->
-        <nav class="navbar">
-            <ul class="nav-list">
-                <li class="logo"><a href="Index.html">BEN'S PIZZA</a></li>
-    
-            </ul>
-    
-            <!--    Navbar Right Section -->
-            <ul class="nav-list navbar-right">
-                <li class="account"> <a href="login.html" class="login">
-                        <i class="fa-solid fa-right-to-bracket"></i>
-                        <span>Login</span>
-                    </a>
-                </li>
-                <li class="account"><a href="createaccount.html" class="create_account">
-                        <i class="fas fa-user-plus"></i>
-                        <span>Create Account</span">
-                    </a>
-                </li>
-    
-                <li class="cart">
-                    <a href="cart.html">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <span>Cart</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    
         <h3>Hours of operations</h3>
         <table>
         <p>Hours may change during holidays or special occasions. Please contact the establishment for specific information.</p>
@@ -91,41 +100,51 @@
 
 
 
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2888.557653854005!2d-79.64298212332153!3d43.615751054851366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b474fdf979dc5%3A0xd1ab6a67d16eea46!2sMani&#39;s%20Pizza%20%26%20Wings!5e0!3m2!1sen!2sca!4v1707852016381!5m2!1sen!2sca" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2888.557653854005!2d-79.64298212332153!3d43.615751054851366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b474fdf979dc5%3A0xd1ab6a67d16eea46!2sMani&#39;s%20Pizza%20%26%20Wings!5e0!3m2!1sen!2sca!4v1707852016381!5m2!1sen!2sca" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
  
-
-         <!-- Footer Section -->
-<footer>
-    <div class="footer-left">
-        <p class="logo"><a href="Index.html">BEN'S PIZZA</a></P>
-        <div class="footer-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms and Conditions</a>
-            <a href="#">Guarantee Policy</a>
-        </div>
-    </div>
-    <div class="footer-right">
-        <div class="footer-column">
-            <h4>ABOUT US</h4>
-            <p>Information about Ben's Pizza.</p>
+    <!-- Footer Section -->    
+    <footer>
+        <div class="footer-left">
+            <a href="aboutcompany.html"><h3>COMPANY</h3></a>
+            <ul>
+                <li><a href="aboutcompany.html">Our Services</a></li>
+                <li><a href="aboutcompany.html">Privacy Policy</a></li>
+                <li><a href="aboutcompany.html">Affiliate Program</a></li>
+            </ul>
         </div>
         <div class="footer-column">
-            <h4>COMPANY</h4>
-            <p>Details about our company.</p>
+            <a href="aboutus.html"><h3>ABOUT US</h3></a>
+            <ul>
+                <li><a href="aboutus.html">Blog</a></li>
+                <li><a href="aboutus.html">Meet the Team</a></li>
+                <li><a href="aboutus.html">Awards</a></li>
+                <li><a href="aboutus.html">Community</a></li>
+            </ul>
         </div>
         <div class="footer-column">
-            <h4>FOR YOU</h4>
-            <p>Contact information, loyalty programs, etc.</p>
+            <h3>GET HELP</h3>
+            <ul>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Shipping</a></li>
+                <li><a href="#">Return</a></li>
+                <li><a href="#">Order Status</a></li>
+                <li><a href="#">Payment Options</a></li>
+            </ul>
         </div>
-    </div>
-    <div class="social-media">
-        <img src="Images/facebook.png" alt="Facebook">
-        <img src="Images/twitter.png" alt="Twitter">
-        <img src="Images/instagram.png" alt="Instagram">
-    </div>
-
-    <p>&copy; 2024 Ben's Pizza. All rights reserved.</p>
-</footer>
+        <div class="footer-right">
+            <h3>FOLLOW US</h3>
+            <ul class="social-media">
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+            </ul>
+        </div>
+    </footer>
+    
+    <div class="bottom-block">
+        <p class="copyright">&copy; 2024 Ben's Pizza. All rights reserved.</p> 
     </div>
 </body>
 </html>
