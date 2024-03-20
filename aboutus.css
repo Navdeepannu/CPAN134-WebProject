@@ -14,9 +14,10 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #fff;
+    background-color: #ffffff; /* A blue background color for the navbar */
+    color: #000000; /* White color for text to contrast with the navbar background */
+    padding: 10px 20px; /* Adding padding for spacing */
 }
-
 
 .nav-list {
     list-style: none;
@@ -27,27 +28,29 @@ body {
 .logo {
     font-size: 24px;
 }
-/*navbar links*/
-.logo a, .login, .create_account, .cart a{
+
+/* Navbar links styling */
+.logo a, .login, .create_account, .cart a {
     color: #333;
     text-decoration: none;
     padding: 10px; 
 } 
 
 /* Hover effect on links in navbar */
-.navbar-right li:hover {
-    background-color: #f5f5f5;
+.navbar-right li:hover, .nav-list li a:hover {
+    background-color: #a5c9ed; /* Darker shade of blue for hover effect */
+    border-radius: 5px; /* Rounded corners for a smoother look */
+    transition: background-color 0.3s ease-in-out; /* Smooth transition for hover effect */
 }
 
 /* Account and Cart Styling */
 .cart, .account {
     display: flex;
     align-items: center;
-    padding: 10px
-
+    padding: 10px;
 }
 
-/* Responsive adjustments */
+/* Navbar Responsive adjustments */
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
@@ -69,11 +72,24 @@ body {
     }
 }
 
+/*Main body styling*/
+.container {
+    justify-content: space-evenly;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    margin: 20px;
+}
 
-.abouttext{
-text-align: center;
-margin-bottom: 40px;
-margin-top: 10px;
+.about_text {
+    text-align: center;
+    margin: 20px 20px 40px 20px;
+
+}
+
+.about_text h2 {
+    margin-bottom: 10px;
 }
 
 .staff{
@@ -82,35 +98,27 @@ margin-top: 10px;
     padding-bottom: 5%;
 
 }
-img{
+
+img {
     border-radius: 30px;
     box-shadow: 0 0 10px rgba(72, 71, 71, 1);
      max-width: 30%;
-    height: auto; 
-      
+    height: auto;  
       
 }
 
-.titles{
+.titles {
     display: flex;
     justify-content: space-around;
     color: black;
     margin-bottom: 10px;
  
 }
-h3{
+
+h3 {
     text-align: center;
     color: black;
 
-}
-
-
-.aboutus{
-    color: white;
-    text-decoration: none;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
 }
 
 

@@ -14,9 +14,10 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #fff;
+    background-color: #ffffff; /* A blue background color for the navbar */
+    color: #000000; /* White color for text to contrast with the navbar background */
+    padding: 10px 20px; /* Adding padding for spacing */
 }
-
 
 .nav-list {
     list-style: none;
@@ -27,52 +28,49 @@ body {
 .logo {
     font-size: 24px;
 }
-/*navbar links*/
-.logo a, .login, .create_account, .cart a{
+
+/* Navbar links styling */
+.logo a, .login, .create_account, .cart a {
     color: #333;
     text-decoration: none;
     padding: 10px; 
 } 
 
 /* Hover effect on links in navbar */
-.navbar-right li:hover {
-    background-color: #f5f5f5;
+.navbar-right li:hover, .nav-list li a:hover {
+    background-color: #a5c9ed; /* Darker shade of blue for hover effect */
+    border-radius: 5px; /* Rounded corners for a smoother look */
+    transition: background-color 0.4s ease-in-out; /* Smooth transition for hover effect */
 }
 
 /* Account and Cart Styling */
 .cart, .account {
     display: flex;
     align-items: center;
-    padding: 10px
-
+    padding: 10px;
 }
 
-/*Side Navbar styles*/
-.side-navbar {
-    position: fixed;
-    top:0;
-    left: 0;
-    width: 500px;
-    height: 100vh;
-    background-color: #d2caca;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 1;
-    display: none;
-    align-items: flex-start;
-    justify-content: flex-start;
+/* Navbar Responsive adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-right {
+        margin-top: 10px;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-list li {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
 }
-
-.side-navbar li {
-    width: 100%;
-}
-
-.side-navbar a {
-    width: 100%;
-}
-
-/* Responsive adjustments for navbar*/
-
-
 
 /* Main Body styling with CSS Grid */
 .grid-container {
@@ -182,8 +180,8 @@ ul li a {
     text-align: center;
     width: 100%;
     padding: 15px 0 15px 0;
-
 }
+
 /* Responsive styles */
 @media screen and (max-width: 455px) {
     .footer-left,
