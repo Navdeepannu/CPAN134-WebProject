@@ -5,8 +5,9 @@ body, h1, h2, p, ul {
 }
 
 body {
-    font-family: proxima-nova, sans-serif;
+    font-family: 'Quicksand', sans-serif;
     background-color: #f5f5f5;
+    color: #333;
 }
 
 /* Navbar styling */
@@ -14,7 +15,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #ffffff; /* A blue background color for the navbar */
+    background-color: whitesmoke; 
     color: #000000; /* White color for text to contrast with the navbar background */
     padding: 10px 20px; /* Adding padding for spacing */
 }
@@ -38,7 +39,7 @@ body {
 
 /* Hover effect on links in navbar */
 .navbar-right li:hover, .nav-list li a:hover {
-    background-color: #a5c9ed; /* Darker shade of blue for hover effect */
+    background-color: #6395bb; /* Darker shade of green for hover effect */
     border-radius: 5px; /* Rounded corners for a smoother look */
     transition: background-color 0.4s ease-in-out; /* Smooth transition for hover effect */
 }
@@ -57,9 +58,6 @@ body {
         align-items: flex-start;
     }
 
-    .navbar-right {
-        margin-top: 10px;
-    }
 
     .nav-list {
         flex-direction: column;
@@ -68,8 +66,33 @@ body {
 
     .nav-list li {
         margin-right: 0;
-        margin-bottom: 10px;
     }
+
+    .account .cart {
+        padding: 0px;
+    }
+}
+
+/* Hero Section styling */
+.hero {
+    background-image :url('Images/background-image.jpeg');
+    background-size :cover;
+    background-position :center;
+    background-repeat :no-repeat;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.7em;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 /* Main Body styling with CSS Grid */
@@ -86,17 +109,154 @@ body {
     text-align: center;
     border-radius: 20px;
     box-shadow: -12px 7px 10px 4px rgba(0, 0, 0, 0.1);
-}
-
-.grid-item img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 400px; 
 }
 
 .grid-item h3 {
     margin-top: 10px;
 }
+
+.grid-item img {
+    max-width: 100%;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.btn-add-to-cart {
+    background-color: #007bff; 
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+}
+
+.btn-add-to-cart span {
+    max-width: 80%; /* Limit the width of the button text to 80% of the button width */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.btn-add-to-cart:hover {
+    background-color: #0056b3; /* Darker blue color on hover */
+}
+
+/* Model Continer QuickView Styling */
+/* Modal container */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; 
+    z-index: 10; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Modal content */
+.modal-content {
+    background-color: #f5f5f5; /* White background */
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #a9a8a8;
+    width: 80%; /* 80% width */
+    max-width: 500px; /* Maximum width */
+    border-radius: 20px;
+}
+
+/* Close button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Contact Us Section styling */
+.contact-us {
+    background-color: #f5f5f5;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.contact-header h2 {
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+.contact-header p {
+    margin-bottom: 30px;
+    font-size: 1.1em;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-form form {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+}
+
+.contact-form label {
+    text-align: left;
+    font-weight: bold;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: calc(100% - 10px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius:18px;
+    font-size: 1em;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 18px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s cubic-bezier(0.25, 0.1, 0.26, 0.88);
+}
+
+.contact-form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+    .contact-form form {
+        grid-template-columns: 1fr;
+    }
+}
+
 
 
 /* Footer styling */

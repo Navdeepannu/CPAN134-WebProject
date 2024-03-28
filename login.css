@@ -33,6 +33,7 @@ body {
 .navbar-right {
     margin-right: 5px;
 }
+
 .logo {
     font-size: 24px;
 }
@@ -60,26 +61,26 @@ body {
 }
 
 /* Navbar Responsive adjustments */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .navbar-right {
-        margin-top: 10px;
+@media (max-width: 625px) {
+    .navbar-right .login,
+    .navbar-right .create_account {
+        display: none;
     }
 
     .nav-list {
-        flex-direction: column;
-        align-items: flex-start;
+        padding:0;
     }
 
-    .nav-list li {
+    .navbar-right {
         margin-right: 0;
-        margin-bottom: 10px;
     }
-}  
+
+    .logo{
+        margin-right: auto;
+    }
+
+}
+ 
 
 
 /* Form Styling */
@@ -93,6 +94,10 @@ body {
     width: 300px;
     margin-top: 50px;
     align-items: center;
+}
+
+#create_account_container {
+    margin-top: 20em;
 }
 
 form {

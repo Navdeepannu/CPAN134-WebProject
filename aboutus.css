@@ -80,6 +80,7 @@ body {
     align-items: stretch;
     flex-wrap: nowrap;
     margin: 20px;
+    min-height: 100vh;
 }
 
 .about_text {
@@ -99,7 +100,7 @@ body {
 
 }
 
-img {
+.container img {
     border-radius: 30px;
     box-shadow: 0 0 10px rgba(72, 71, 71, 1);
      max-width: 30%;
@@ -107,7 +108,7 @@ img {
       
 }
 
-.titles {
+.container .titles {
     display: flex;
     justify-content: space-around;
     color: black;
@@ -115,7 +116,7 @@ img {
  
 }
 
-h3 {
+.container h3 {
     text-align: center;
     color: black;
 

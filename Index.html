@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +7,7 @@
     <link rel="stylesheet" href="index.css">
     <title>Ben's Pizza</title>
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
     <script src="https://kit.fontawesome.com/2127b2ef1e.js" crossorigin="anonymous"></script>  <!-- Font Awesome -->
 
 </head>
@@ -44,6 +46,14 @@
         </ul>
     </nav>
     
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Everything is better with a pizza</h1>
+        <p>Indulge in the cheesy goodness and mouth-watering flavours of our freshly baked pizzas.</p>
+    </section>
+
+
     <!-- Main Body Section -->
     <main class="grid-container">
 
@@ -51,45 +61,109 @@
         <div class="grid-item">
             <h3>MEAT FAVOURITES</h3>
             <img src="Images/meat.avif" alt="meat">
+            <button class="btn-quick-view btn-add-to-cart" data-modal-target="#quickViewModal" data-image="Images/meat.avif" data-title = "MEAT FAVOURITES" data-description="Meat Favourites Description">Quick View</button>
+            <button class="btn-add-to-cart">Add to cart</button>
+        </div>
+
+        <!-- Modal 1 -->
+        <div id="quickViewModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <img id="modalImage" src="" alt="Modal Image" style= "height: auto; width: 300px; max-width: 300px;">
+                <h2 id="modalTitle">Modal Title</h2>
+                <p id="modalDescription">Modal Description</p>
+                <button id="modalAddToCart" class="btn-add-to-cart">Add to cart</button>
+            </div>
+        </div>
+
+
+        <div class="grid-item">
+            <h3>VEGGIE</h3>
+            <img src="Images/Meat_pizza.avif" alt="veggie">
+            <button class="btn-quick-view btn-add-to-cart" data-modal-target="#quickViewModal" data-image="Images/Meat_pizza.avif" data-title = "MEATS" data-description="Veggie pizza description">Quick View</button>
+            <button class="btn-add-to-cart">Add to cart</button>
+        </div>
+    
+
+        <div class="grid-item">
+            <h3>HOUSE SPECIALS</h3>
+            <img src="Images/House_special.avif" alt="specials">
+            <button class="btn-quick-view btn-add-to-cart" data-modal-target="#quickViewModal" data-image="Images/House_special.avif" data-title = "HOUSE SPECIAL" data-description="Pizza description">Quick View</button>
+            <button class="btn-add-to-cart">Add to cart</button>
         </div>
 
         <div class="grid-item">
-            <h3>VEGGIE FAVOURITES</h3>
-            <img src="Images/Meat_pizza.avif" alt="veggie">
-        </div>
-        <div class="grid-item">
-            <h3>HOUSE SPECIALS</h3>
-            <img src="Images/pizza_1.avif" alt="specials">
-        </div>
-        <div class="grid-item">
             <h3>VEGAN OPTIONS</h3>
-            <img src="Images/plant.avif" alt="apps-sides">
+            <img src="Images/plant.avif" alt="plant based">
+            <button class="btn-quick-view btn-add-to-cart" data-modal-target="#quickViewModal" data-image="Images/plant.avif" data-title = "VEGAN OPTION" data-description="Vegan pizza description">Quick View</button>
+            <button class="btn-add-to-cart">Add to cart</button>
         </div>
+
         <div class="grid-item">
             <h3>BREADS</h3>
             <img src="Images/Bread.avif" alt="breads">
+            <button class="btn-quick-view btn-add-to-cart" data-modal-target="#quickViewModal" data-image="Images/Bread.avif" data-title = "BREAD" data-description="Description">Quick View</button>
+            <button class="btn-add-to-cart">Add to cart</button>
         </div>
+
         <div class="grid-item">
             <h3>SANDWICH</h3>
             <img src="Images/SANDWICH.avif" alt="sandwitches">
+            <button class="btn-quick-view btn-add-to-cart" data-modal-target="#quickViewModal" data-image="Images/SANDWICH.avif" data-title = "SANDWICH" data-description="Sandwitches description">Quick View</button>
+            <button class="btn-add-to-cart">Add to cart</button>
         </div>
+
         <div class="grid-item">
             <h3> SIDES</h3>
             <img src="Images/bites.avif" alt="plantbased">
+            <button class="btn-quick-view btn-add-to-cart" data-modal-target="#quickViewModal" data-image="Images/bites.avif" data-title = "SIDES" data-description="Sides description">Quick View</button>
+            <button class="btn-add-to-cart">Add to cart</button>
         </div>
+
         <div class="grid-item">
             <h3>SWEET TREATS </h3>
-            <img src="Images/Donut.png" alt="desert">
+            <img src="Images/Donut.avif" alt="desert">
+            <button class="btn-quick-view btn-add-to-cart" data-modal-target="#quickViewModal" data-image="Images/Donut.avif" data-title = "SWEET TREAT" data-description="Description">Quick View</button>
+            <button class="btn-add-to-cart">Add to cart</button>
         </div>
+
         <div class="grid-item">
             <h3>FAMOUS DIPS</h3>
             <img src="Images/Dips.avif" alt="dips">
+            <button class="btn-quick-view btn-add-to-cart" data-modal-target="#quickViewModal" data-image="Images/Dips.avif" data-title = "DIPS" data-description="Description">Quick View</button>
+            <button class="btn-add-to-cart">Add to cart</button>
         </div>
+
         <div class="grid-item">
             <h3>DRINKS</h3>
             <img src="Images/drinks.avif" alt="drinks">
+            <button class="btn-quick-view btn-add-to-cart" data-modal-target="#quickViewModal" data-image="Images/drinks.avif" data-title = "DRINKS" data-description="Description">Quick View</button>
+            <button class="btn-add-to-cart">Add to cart</button>
         </div>
+
     </main>
+
+    <!--Contact Us section-->
+    <section class="contact-us">
+        <div class="contact-header">
+            <h2>Contact Us</h2>
+            <p>Need help or have feedback? Check out our FAQs or contact us directly.</p>
+        </div>
+        <div class="contact-form">
+            <form action="#" method="post">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" required placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" required placeholder="Your Email">
+                </div>
+                <div class="form-group">
+                    <textarea id="message" name="message" rows="5" required placeholder="Your Message"></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
 
     <!-- Footer Section -->    
     <footer>
@@ -113,10 +187,10 @@
         <div class="footer-column">
             <h3>GET HELP</h3>
             <ul>
-                <li><a href="#">FAQs</a></li>
-                <li><a href="#">Shipping</a></li>
-                <li><a href="#">Your Orders</a></li>
-                <li><a href="#">Payment Options</a></li>
+                <li><a href="aboutcompany.html">FAQs</a></li>
+                <li><a href="aboutcompany.html">Shipping</a></li>
+                <li><a href="aboutcompany.html">Your Orders</a></li>
+                <li><a href="aboutcompany.html">Payment Options</a></li>
             </ul>
         </div>
         <div class="footer-right">
@@ -135,7 +209,45 @@
     </div>
 
     <script>
-        
+            document.addEventListener('DOMContentLoaded', function() {
+            
+            // Function to open the modal and populate it with data
+            function openModal(button) {
+                const modal = document.querySelector(button.dataset.modalTarget);
+                const imageSrc = button.dataset.image;
+                const title = button.dataset.title;
+                const description = button.dataset.description;
+
+                document.getElementById('modalImage').src = imageSrc;
+                document.getElementById('modalTitle').textContent = title;
+                document.getElementById('modalDescription').textContent = description;
+
+                modal.style.display = 'block';
+            }
+
+            // Attach click event to "Quick View" buttons
+            document.querySelectorAll('.btn-quick-view').forEach(button => {
+                button.addEventListener('click', function() {
+                    openModal(this);
+                });
+            });
+
+
+            // Close the modal when the user clicks on <span> (x)
+            document.querySelectorAll('.modal .close').forEach(closeButton => {
+                closeButton.onclick = function() {
+                    this.parentElement.parentElement.style.display = 'none';
+                }
+            });
+
+            // Also close the modal when the user clicks anywhere outside of the modal content
+            window.onclick = function(event) {
+                if (event.target.classList.contains('modal')) {
+                    event.target.style.display = 'none';
+                }
+            }
+        });
+
     </script>
 </body>
 </html>
