@@ -18,6 +18,7 @@ body {
     background-color: whitesmoke; 
     color: #000000; /* White color for text to contrast with the navbar background */
     padding: 10px 20px; /* Adding padding for spacing */
+    margin: 0px 15px;
 }
 
 .nav-list {
@@ -50,6 +51,25 @@ body {
     align-items: center;
     padding: 10px;
 }
+
+/* Cart icon styling */
+.navbar .cart .cart-icon {
+    position: relative;
+    display: inline-block;
+    font-size:s 24px;
+}
+
+.navbar .cart .cart-icon .cart-counter {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: #e31837;
+    color: white;
+    border-radius: 50%;
+    padding: 4px 7px;
+    font-size: 12px;
+}
+
 
 /* Navbar Responsive adjustments */
 @media (max-width: 768px) {
