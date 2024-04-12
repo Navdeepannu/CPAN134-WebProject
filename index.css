@@ -193,14 +193,14 @@ body {
 
 /* Modal content */
 .modal-content {
-    background-color: #23201d;
+    background-color: #fefefe;
     margin: 6% auto;
     padding: 20px;
     border: 1px solid #a9a8a8;
     width: 80%;
     max-width: 500px;
     border-radius: 20px;
-    color: white;
+    color: #333;
 }
 
 #modalImage {

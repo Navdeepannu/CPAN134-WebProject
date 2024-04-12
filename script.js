@@ -121,6 +121,55 @@ function addToCart() {
     saveCartItem(cartItem);
 }
 
+// Function to increment cart count and update the cart sign
+function addToCart() {
+    cartCount++;
+    document.getElementById('cartCount').textContent = cartCount;
+
+    // Display message
+    const message = document.getElementById('message');
+    message.style.display = 'block';
+    setTimeout(() => {
+        message.style.display = 'none';
+    }, 2000); // Hide message after 2 seconds
+
+    // Reset options to default
+    resetOptions();
+
+    // Add item to cart storage (localStorage)
+    const cartItem = {
+        image: document.getElementById('modalImage').src,
+        title: document.getElementById('modalTitle').textContent,
+        description: document.getElementById('modalDescription').textContent,
+        price: document.getElementById('modalPrice').textContent
+    };
+    saveCartItem(cartItem);
+}
+
+// Function to reset options to default
+function resetOptions() {
+    // Reset toppings checkboxes
+    document.querySelectorAll('input[name="toppings"]').forEach(checkbox => {
+        checkbox.checked = false;
+    });
+
+    // Reset size radio buttons
+    document.querySelectorAll('input[name="size"]').forEach(radioButton => {
+        if (radioButton.value === 'medium') {
+            radioButton.checked = true; // Set medium as default
+        } else {
+            radioButton.checked = false;
+        }
+    });
+
+    // Reset quantity input
+    document.getElementById('modalQuantity').value = 1;
+
+    // Recalculate price
+    calculatePrice();
+}
+
+
 // Function to save cart item to localStorage
 function saveCartItem(item) {
     let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];

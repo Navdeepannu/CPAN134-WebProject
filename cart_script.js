@@ -1,11 +1,23 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Load cart items from localStorage and display them
     displayCartItems();
+
+    // Clear Cart Button
+    const clearCartBtn = document.getElementById('clearCartBtn');
+    clearCartBtn.addEventListener('click', function() {
+        clearCart();
+    });
 });
 
 // Function to load cart items from localStorage and display them
 function displayCartItems() {
     const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+    // Check if the cart should be cleared
+    if (shouldClearCart()) {
+        clearCart();
+        return;
+    }
 
     const cartContainer = document.getElementById('cartItems');
     cartContainer.innerHTML = ''; // Clear previous content
@@ -41,6 +53,26 @@ function displayCartItems() {
 
     // Calculate and display total price
     calculateTotalPrice(cartItems);
+}
+
+// Function to check if the cart should be cleared
+function shouldClearCart() {
+    // Check if the cart was cleared
+    return localStorage.getItem('clearCart') === 'true';
+}
+
+// Function to clear the cart
+function clearCart() {
+    // Remove all cart items from the cartItems container
+    const cartItems = document.getElementById('cartItems');
+    cartItems.innerHTML = '';
+
+    // Reset the total price to $0
+    document.getElementById('totalPrice').textContent = '$0';
+
+    // Clear the localStorage
+    localStorage.removeItem('cartItems');
+    localStorage.removeItem('clearCart');
 }
 
 // Function to calculate and display total price

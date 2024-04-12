@@ -157,6 +157,22 @@ body {
     background-color: #555;
 }
 
+/* Style for Clear Cart Button */
+#clearCartBtn {
+    background-color: #ff0000; /* Red background color */
+    color: #fff; /* White text color */
+    padding: 10px 20px; /* Padding around the button text */
+    margin-top: 10px;
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Show pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for background color change */
+}
+
+/* Hover effect */
+#clearCartBtn:hover {
+    background-color: #cc0000; /* Darker red on hover */
+}
 
 /* Footer styling */
 footer {
