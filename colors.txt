@@ -9,7 +9,7 @@
     --bg-200:#ebebeb;
     --bg-300:#c2c2c2;
       
-          --primary-100:#FF6347;
+    --primary-100:#FF6347;
     --primary-200:#dc442e;
     --primary-300:#8d0000;
     --accent-100:#FFD700;

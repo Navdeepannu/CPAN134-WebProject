@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cart-stylesheet.css">
+    <title>Cart - Ben's Pizza</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"> <!--Google Fonts-->
+    <script src="https://kit.fontawesome.com/2127b2ef1e.js" crossorigin="anonymous"></script>  <!-- Font Awesome -->
+</head>
+<body>
+    <!-- Navbar Section --> 
+    <nav class="navbar">
+        <ul class="nav-list">
+            <li class="logo">
+                <a href="index.html"><span class="logo">BEN'S PIZZA</span></a>
+            </li>
+        </ul>
+        <!-- Navbar Right Section -->
+        <ul class="nav-list navbar-right">
+            <li class="account"> 
+                <a href="login.html" class="login">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    <span>Login</span>
+                </a>
+            </li>
+            <li class="account">
+                <a href="createaccount.html" class="create_account">
+                    <i class="fas fa-user-plus"></i>
+                    <span>Create Account</span">
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Cart Content Section -->
+    <section class="cart-section">
+        <h2>Your Cart</h2>
+        <div id="cartItems" class="cart-items">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+        <div class="cart-total">
+            <h3>Total: <span id="totalPrice">$0</span></h3>
+            <form id="paymentForm">
+                <h3>Payment Options</h3>
+                <label for="cardNumber">Card Number:</label>
+                <input type="text" id="cardNumber" name="cardNumber" required><br>
+                <label for="expiryDate">Expiry Date:</label>
+                <input type="text" id="expiryDate" name="expiryDate" required><br>
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" required><br>
+                <button type="submit">Pay Now</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer Section -->    
+    <footer>
+        <div class="footer-left">
+            <a href="aboutcompany.html"><h3>COMPANY</h3></a>
+            <ul>
+                <li><a href="aboutcompany.html">Our Services</a></li>
+                <li><a href="aboutcompany.html">Privacy Policy</a></li>
+                <li><a href="aboutcompany.html">Affiliate Program</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <a href="aboutus.html"><h3>ABOUT US</h3></a>
+            <ul>
+                <li><a href="aboutus.html">Blog</a></li>
+                <li><a href="aboutus.html">Meet the Team</a></li>
+                <li><a href="aboutus.html">Awards</a></li>
+                <li><a href="aboutus.html">Community</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>GET HELP</h3>
+            <ul>
+                <li><a href="aboutcompany.html">FAQs</a></li>
+                <li><a href="aboutcompany.html">Shipping</a></li>
+                <li><a href="aboutcompany.html">Your Orders</a></li>
+                <li><a href="aboutcompany.html">Payment Options</a></li>
+            </ul>
+        </div>
+        <div class="footer-right">
+            <h3>FOLLOW US</h3>
+            <ul class="social-media">
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <div class="bottom-block">
+        <p class="copyright">&copy; 2024 Ben's Pizza. All rights reserved.</p>
+    </div>
+
+    <script src="cart_script.js"></script>
+</body>
+</html>

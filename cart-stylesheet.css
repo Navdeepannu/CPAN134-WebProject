@@ -4,9 +4,20 @@ body, h1, h2, p, ul {
     padding: 0;
 }
 
+:root {
+    --background-color: #f5f5f5;
+    --primary-color: #1E90FF ;
+    --secondary-color: #3e3e3e;
+    --button-color: #7b9e83;
+    --info-color: #17a2b8;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+}
+
 body {
-    font-family: 'Inter', sans-serif;
-    background-color: #f5f5f5;
+    font-family:'Inter', sans-serif;
+    background-color: var(--background-color);
+    color: var(--dark-color);
 }
 
 /* Navbar styling */
@@ -14,8 +25,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #ffffff; /* A blue background color for the navbar */
-    color: #000000; /* White color for text to contrast with the navbar background */
+    background-color: whitesmoke; 
     padding: 10px 20px; /* Adding padding for spacing */
     margin: 0px 15px;
 }
@@ -32,16 +42,16 @@ body {
 
 /* Navbar links styling */
 .logo a, .login, .create_account, .cart a {
-    color: #333;
+    color: var(--dark-color);
     text-decoration: none;
     padding: 10px; 
 } 
 
 /* Hover effect on links in navbar */
 .navbar-right li:hover, .nav-list li a:hover {
-    background-color: #a5c9ed; /* Darker shade of blue for hover effect */
-    border-radius: 5px; /* Rounded corners for a smoother look */
-    transition: background-color 0.3s ease-in-out; /* Smooth transition for hover effect */
+    background-color: #c7d5df; 
+    border-radius: 10px;
+    transition: background-color 0.4s ease-in; /* Smooth transition for hover effect */
 }
 
 /* Account and Cart Styling */
@@ -69,6 +79,7 @@ body {
     font-size: 12px;
 }
 
+
 /* Navbar Responsive adjustments */
 @media (max-width: 768px) {
     .navbar {
@@ -76,9 +87,6 @@ body {
         align-items: flex-start;
     }
 
-    .navbar-right {
-        margin-top: 10px;
-    }
 
     .nav-list {
         flex-direction: column;
@@ -87,58 +95,66 @@ body {
 
     .nav-list li {
         margin-right: 0;
-        margin-bottom: 10px;
+    }
+
+    .account .cart {
+        padding: 0px;
     }
 }
 
-/*Main body styling*/
-.container {
-    justify-content: space-evenly;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    flex-wrap: nowrap;
-    margin: 20px;
-    min-height: 100vh;
+
+/* Cart Section */
+.cart-section {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    max-width: 800px;
 }
 
-.about_text {
-    text-align: center;
-    margin: 20px 20px 40px 20px;
-
+.cart-section h2 {
+    margin-bottom: 20px;
 }
 
-.about_text h2 {
+.cart-items {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.cart-total {
+    margin-top: 20px;
+}
+
+.cart-total h3 {
     margin-bottom: 10px;
 }
 
-.staff{
-    display: flex;
-    justify-content:space-around;
-    padding-bottom: 5%;
-
+#paymentForm {
+    margin-top: 20px;
 }
 
-.container img {
-    border-radius: 30px;
-    box-shadow: 0 0 10px rgba(72, 71, 71, 1);
-     max-width: 30%;
-    height: auto;  
-      
+#paymentForm label {
+    display: block;
+    margin-bottom: 5px;
 }
 
-.container .titles {
-    display: flex;
-    justify-content: space-around;
-    color: black;
+#paymentForm input {
+    width: 100%;
+    padding: 8px;
     margin-bottom: 10px;
- 
 }
 
-.container h3 {
-    text-align: center;
-    color: black;
+#paymentForm button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
+#paymentForm button:hover {
+    background-color: #555;
 }
 
 
@@ -223,8 +239,8 @@ ul li a {
     text-align: center;
     width: 100%;
     padding: 15px 0 15px 0;
-
 }
+
 /* Responsive styles */
 @media screen and (max-width: 455px) {
     .footer-left,

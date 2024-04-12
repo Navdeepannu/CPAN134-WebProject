@@ -4,10 +4,20 @@ body, h1, h2, p, ul {
     padding: 0;
 }
 
+:root {
+    --background-color: #f5f5f5;
+    --primary-color: #1E90FF ;
+    --secondary-color: #3e3e3e;
+    --button-color: #7b9e83;
+    --info-color: #17a2b8;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+}
+
 body {
-    font-family: 'Quicksand', sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
+    font-family:'Inter', sans-serif;
+    background-color: var(--background-color);
+    color: var(--dark-color);
 }
 
 /* Navbar styling */
@@ -16,7 +26,6 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: whitesmoke; 
-    color: #000000; /* White color for text to contrast with the navbar background */
     padding: 10px 20px; /* Adding padding for spacing */
     margin: 0px 15px;
 }
@@ -33,16 +42,16 @@ body {
 
 /* Navbar links styling */
 .logo a, .login, .create_account, .cart a {
-    color: #333;
+    color: var(--dark-color);
     text-decoration: none;
     padding: 10px; 
 } 
 
 /* Hover effect on links in navbar */
 .navbar-right li:hover, .nav-list li a:hover {
-    background-color: #6395bb; /* Darker shade of green for hover effect */
-    border-radius: 5px; /* Rounded corners for a smoother look */
-    transition: background-color 0.4s ease-in-out; /* Smooth transition for hover effect */
+    background-color: #c7d5df; 
+    border-radius: 10px;
+    transition: background-color 0.4s ease-in; /* Smooth transition for hover effect */
 }
 
 /* Account and Cart Styling */
@@ -118,9 +127,10 @@ body {
 /* Main Body styling with CSS Grid */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     grid-gap: 20px;
     padding: 20px;
+    justify-items: stretch;
 }
 
 .grid-item {
@@ -134,6 +144,7 @@ body {
     justify-content: space-between;
     align-items: center;
     height: 400px; 
+    width: auto;
 }
 
 .grid-item h3 {
@@ -167,30 +178,91 @@ body {
     background-color: #0056b3; /* Darker blue color on hover */
 }
 
-/* Model Continer QuickView Styling */
 /* Modal container */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; 
-    z-index: 10; /* Sit on top */
+    display: none;
+    position: fixed;
+    z-index: 10;
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%; 
-    overflow: auto; 
+    height: 100%;
+    overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
 }
 
 /* Modal content */
 .modal-content {
-    background-color: #f5f5f5; /* White background */
-    margin: 15% auto;
+    background-color: #23201d;
+    margin: 6% auto;
     padding: 20px;
     border: 1px solid #a9a8a8;
-    width: 80%; /* 80% width */
-    max-width: 500px; /* Maximum width */
+    width: 80%;
+    max-width: 500px;
     border-radius: 20px;
+    color: white;
 }
+
+#modalImage {
+    max-width: 80%;
+    max-height: 100%;
+}
+
+#modalTitle {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#modalDescription {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.option {
+    display: flex;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.button {
+    display: inline-block;
+    background-color: #f2f2f2;
+    color: #333;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #ddd;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"] + .button {
+    margin-right: 10px;
+}
+
+input[type="checkbox"]:checked + .button {
+    background-color: #4caf50;
+    color: white;
+}
+
+.option label {
+    margin-right: 10px;
+}
+
+#modalPrice {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
 
 /* Close button */
 .close {

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +6,9 @@
     <link rel="stylesheet" href="index.css">
     <title>Ben's Pizza</title>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"> <!--Google Fonts-->
     <script src="https://kit.fontawesome.com/2127b2ef1e.js" crossorigin="anonymous"></script>  <!-- Font Awesome -->
-    <script src="script.js"></script>
+    <script src="script.js"></script> <!--Javascript-->
 
 </head>
 <body>
@@ -51,7 +50,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <h1>Everything is better with a pizza</h1>
-        <p>Indulge in the cheesy goodness and mouth-watering flavours of our freshly baked pizzas.</p>
+        <p>Our mission is to make the world a better place, one slice at a time.</p>
     </section>
 
 
@@ -60,88 +59,288 @@
 
         <!-- Grid Items for Food Options -->
         <div class="grid-item">
-            <h3>MEAT FAVOURITES</h3>
             <img src="Images/meat.avif" alt="meat">
-            <button class="btn-quick-view btn-add-to-cart" data-modal-target="#quickViewModal" data-image="Images/meat.avif" data-title = "MEAT FAVOURITES" data-description="Meat Favourites Description">Quick View</button>
-            <button class="btn-add-to-cart" onclick="addtoCart()">Add to cart</button>
+            <h3>MEAT FAVOURITES</h3>
+            <p>A pizza boasts a hearty blend of savory meats atop a cheesy crust.</p>
+            <button class="btn-quick-view btn-add-to-cart pizza1" data-modal-target="#quickViewModal" data-image="Images/meat.avif" data-title="MEAT FAVOURITES" data-description="Meat Favourites Description">Quick View</button>
+            <button class="btn-add-to-cart" onclick="addToCart()">Add to cart</button>
         </div>
 
-        <!-- Modal 1 -->
-        <div id="quickViewModal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <img id="modalImage" src="" alt="Modal Image" style= "height: auto; width: 300px; max-width: 300px;">
-                <h2 id="modalTitle">Modal Title</h2>
-                <p id="modalDescription">Modal Description</p>
-                <button id="modalAddToCart" class="btn-add-to-cart" onclick="addtoCart()">Add to cart</button>
-            </div>
-        </div>
-
-
+        <!-- Grid Items for Food Options -->
         <div class="grid-item">
-            <h3>VEGGIE</h3>
             <img src="Images/Meat_pizza.avif" alt="veggie">
-            <button class="btn-quick-view btn-add-to-cart" data-modal-target="#quickViewModal" data-image="Images/Meat_pizza.avif" data-title = "MEATS" data-description="Veggie pizza description">Quick View</button>
-            <button class="btn-add-to-cart" onclick="addtoCart()">Add to cart</button>
+            <h3>VEGGIE</h3>
+            <p>A delicious pizza loaded with fresh veggies.</p>
+            <button class="btn-quick-view btn-add-to-cart pizza2" data-modal-target="#quickViewModal" data-image="Images/Meat_pizza.avif" data-title="VEGGIE" data-description="Veggie pizza description">Quick View</button>
+            <button class="btn-add-to-cart" onclick="addToCart()">Add to cart</button>
         </div>
     
 
         <div class="grid-item">
-            <h3>HOUSE SPECIALS</h3>
             <img src="Images/House_special.avif" alt="specials">
-            <button class="btn-quick-view btn-add-to-cart" data-modal-target="#quickViewModal" data-image="Images/House_special.avif" data-title = "HOUSE SPECIAL" data-description="Pizza description">Quick View</button>
-            <button class="btn-add-to-cart" onclick="addtoCart()">Add to cart</button>
+            <h3>HOUSE SPECIALS</h3>
+            <p>Our chef's special selection of pizzas.</p>
+            <button class="btn-quick-view btn-add-to-cart pizza3 open" data-modal-target="#quickViewModal" data-image="Images/House_special.avif" data-title="HOUSE SPECIAL" data-description="Pizza description">Quick View</button>
+            <button class="btn-add-to-cart" onclick="addToCart()">Add to cart</button>
         </div>
 
+        <!-- Grid Items for sandwithces-->
         <div class="grid-item">
-            <h3>VEGAN OPTIONS</h3>
-            <img src="Images/plant.avif" alt="plant based">
-            <button class="btn-quick-view btn-add-to-cart" data-modal-target="#quickViewModal" data-image="Images/plant.avif" data-title = "VEGAN OPTION" data-description="Vegan pizza description">Quick View</button>
-            <button class="btn-add-to-cart">Add to cart</button>
+            <img src="Images/sandwich.avif" alt="sandwich">
+            <h3>SANDWICHES</h3>
+            <p>Our chef's special selection of sandwiches.</p>
+            <button class="btn-quick-view btn-add-to-cart sandwich" data-modal-target="#sandwichesModal" data-title="SANDWICH" data-description="Description">Quick View</button>
+            <button class="btn-add-to-cart" onclick="addToCart()">Add to cart</button>
         </div>
 
+        <!--Grid for vegan options-->
         <div class="grid-item">
-            <h3>BREADS</h3>
+            <img src="Images/plant.avif" alt="vegan">
+            <h3>PLANT BASED</h3>
+            <p>Our chef's special selection of vegan options.</p>
+            <button class="btn-quick-view btn-add-to-cart plant_based" data-modal-target="#plantbasedModal" data-title="VEGAN" data-description="Description">Quick View</button>
+            <button class="btn-add-to-cart" onclick="addToCart()">Add to cart</button>
+        </div>
+
+        
+        <!-- Grid Items for Breads -->
+        <div class="grid-item">
             <img src="Images/Bread.avif" alt="breads">
-            <button class="btn-quick-view btn-add-to-cart" data-modal-target="#quickViewModal" data-image="Images/Bread.avif" data-title = "BREAD" data-description="Description">Quick View</button>
-            <button class="btn-add-to-cart" onclick="addtoCart()">Add to cart</button>
+            <h3>BREADS</h3>
+            <p>Delicious bread options to complement your meal.</p>
+            <button class="btn-quick-view btn-add-to-cart breads" data-modal-target="#breadsModal" data-title="BREAD" data-description="Description">Quick View</button>
+            <button class="btn-add-to-cart" onclick="addToCart()">Add to cart</button>
         </div>
 
+        <!-- Grid Items for Sides -->
         <div class="grid-item">
-            <h3>SANDWICH</h3>
-            <img src="Images/SANDWICH.avif" alt="sandwitches">
-            <button class="btn-quick-view btn-add-to-cart" data-modal-target="#quickViewModal" data-image="Images/SANDWICH.avif" data-title = "SANDWICH" data-description="Sandwitches description">Quick View</button>
-            <button class="btn-add-to-cart" onclick="addtoCart()">Add to cart</button>
-        </div>
-
-        <div class="grid-item">
-            <h3> SIDES</h3>
             <img src="Images/bites.avif" alt="plantbased">
-            <button class="btn-quick-view btn-add-to-cart" data-modal-target="#quickViewModal" data-image="Images/bites.avif" data-title = "SIDES" data-description="Sides description">Quick View</button>
-            <button class="btn-add-to-cart" onclick="addtoCart()">Add to cart</button>
+            <h3>SIDES</h3>
+            <p>Perfect sides to accompany your pizza.</p>
+            <button class="btn-quick-view btn-add-to-cart sides" data-modal-target="#sidesModal" data-title="SIDES" data-description="Sides description">Quick View</button>
+            <button class="btn-add-to-cart" onclick="addToCart()">Add to cart</button>
         </div>
 
+        <!-- Grid Items for Sweets -->
         <div class="grid-item">
-            <h3>SWEET TREATS </h3>
             <img src="Images/Donut.avif" alt="desert">
-            <button class="btn-quick-view btn-add-to-cart" data-modal-target="#quickViewModal" data-image="Images/Donut.avif" data-title = "SWEET TREAT" data-description="Description">Quick View</button>
-            <button class="btn-add-to-cart" onclick="addtoCart()">Add to cart</button>
+            <h3>SWEET TREATS </h3>
+            <p>Indulge in our delicious sweet treats.</p>
+            <button class="btn-quick-view btn-add-to-cart sweets" data-modal-target="#sweetsModal" data-title="SWEET TREAT" data-description="Description">Quick View</button>
+            <button class="btn-add-to-cart" onclick="addToCart()">Add to cart</button>
         </div>
 
+        <!--Grid Item for drinks-->
         <div class="grid-item">
-            <h3>FAMOUS DIPS</h3>
-            <img src="Images/Dips.avif" alt="dips">
-            <button class="btn-quick-view btn-add-to-cart" data-modal-target="#quickViewModal" data-image="Images/Dips.avif" data-title = "DIPS" data-description="Description">Quick View</button>
-            <button class="btn-add-to-cart" onclick="addtoCart()">Add to cart</button>
-        </div>
-
-        <div class="grid-item">
+            <img src="Images/Drinks.avif" alt="drinks">
             <h3>DRINKS</h3>
-            <img src="Images/drinks.avif" alt="drinks">
-            <button class="btn-quick-view btn-add-to-cart" data-modal-target="#quickViewModal" data-image="Images/drinks.avif" data-title = "DRINKS" data-description="Description">Quick View</button>
-            <button class="btn-add-to-cart" onclick="addtoCart()">Add to cart</button>
+            <p>Refreshing beverages to quench your thirst.</p>
+            <button class="btn-quick-view btn-add-to-cart drinks" data-modal-target="#drinksModal" data-title="DRINKS" data-description="Description">Quick View</button>
+            <button class="btn-add-to-cart" onclick="addToCart()">Add to cart</button>
         </div>
 
+    <!-- Modal for Quick View -->
+    <div id="quickViewModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modalImage" src="" alt="Modal Image">
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+           
+            <div class="option">
+                <label>Select Dough:</label><br>
+                <input type="radio" id="regularDough" name="dough" value="regular" checked>
+                <label for="regularDough" class="button">Regular</label><br>
+                <input type="radio" id="thickDough" name="dough" value="thick">
+                <label for="thickDough" class="button">Thick</label><br>
+                <input type="radio" id="thinDough" name="dough" value="thin">
+                <label for="thinDough" class="button">Thin</label><br>
+            </div>
+
+            <div class="option"> 
+                <input type="radio" id="smallSize" name="size" value="small" class="button">
+                <label for="smallSize">Small</label>
+                
+                <input type="radio" id="mediumSize" name="size" value="medium" class="button">
+                <label for="mediumSize">Medium</label>
+                
+                <input type="radio" id="largeSize" name="size" value="large" class="button">
+                <label for="largeSize">Large</label>
+                
+                <input type="radio" id="x-largeSize" name="size" value="x-large" class="button">
+                <label for="xLargeSize">X-Large</label>
+            </div> 
+
+            <div class="option" id="toppings">
+                <label>Select Toppings ($2 each):</label><br>
+                <input type="checkbox" id="onionToppings" name="toppings" value="onion">
+                <label for="onionToppings" class="button">Onion</label><br>
+                <input type="checkbox" id="mushroomsToppings" name="toppings" value="mushrooms">
+                <label for="mushroomsToppings" class="button">Mushrooms</label><br>
+                <input type="checkbox" id="bellPeppersToppings" name="toppings" value="bell_peppers">
+                <label for="bellPeppersToppings" class="button">Bell Peppers</label><br>
+                <input type="checkbox" id="greenPeppersToppings" name="toppings" value="green_peppers">
+                <label for="greenPeppersToppings" class="button">Green Peppers</label><br>
+                <input type="checkbox" id="blackOlivesToppings" name="toppings" value="black_olives">
+                <label for="blackOlivesToppings" class="button">Black Olives</label><br>
+                <input type="checkbox" id="greenOlivesToppings" name="toppings" value="green_olives">
+                <label for="greenOlivesToppings" class="button">Green Olives</label><br>
+                <input type="checkbox" id="hamToppings" name="toppings" value="ham">
+                <label for="hamToppings" class="button">Ham</label><br>
+                <input type="checkbox" id="baconToppings" name="toppings" value="bacon">
+                <label for="baconToppings" class="button">Bacon</label><br>
+                <input type="checkbox" id="chickenToppings" name="toppings" value="chicken">
+                <label for="chickenToppings" class="button">Chicken</label><br>
+             </div>
+        
+           
+            <div class="option">
+                <label>Quantity:</label>
+                <input type="number" id="modalQuantity" value="1" min="1">
+            </div>
+           
+            <p>Total Price:<span id="modalPrice">$10</span></p>
+            <button id="modalAddToCart" class="btn-add-to-cart" onclick="addToCart()">Add to cart</button>
+        </div>
+    </div>
+
+    <!-- Modal for Sandwiches -->
+    <div id="sandwichesModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img src="Images/SANDWICH.avif" alt="Images Modal">
+            <h2>SANDWICHES</h2>
+            <p>Our chef's special selection of sandwiches.</p>
+
+            <div class="option">
+                <label>Choose Item:</label><br>
+                <input type="checkbox" id="hamburger" name="sandwichType" value="hamburger" data-price="8">
+                <label for="hamburger">Hamburger - $8</label><br>
+
+                <input type="checkbox" id="grilled-cheese" name="sandwichType" value="grilled-cheese" data-price="7">
+                <label for="grilled-cheese">Grilled Cheese - $7</label><br>
+
+                <input type="checkbox" id="club-sandwich" name="sandwichType" value="club-sandwich" data-price="9">
+                <label for="club-sandwich">Club Sandwich - $9</label><br>
+                
+                <input type="checkbox" id="reuben" name="sandwichType" value="reuben" data-price="9">
+                <label for="reuben">Reuben - $9</label><br>
+            </div>
+
+            <div class="option">
+                <label>Quantity:</label>
+                <input type="number" id="sandwichQuantity" value="1" min="1">
+            </div>
+            
+            <p>Total Price: <span id="sandwichesPrice">$0</span></p>
+            <button class="btn-add-to-cart" onclick="calculateTotalPrice()">Add to Cart</button>
+        </div>
+    </div>
+
+
+    <!-- Modal for Plant Based -->
+    <div id="plantbasedModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modalImage" src="Images/plant.avif" alt="">
+            <h2>PLANT-BASED</h2>
+            <div class="option">
+                <label>Choose Item:</label><br>
+                <input type="checkbox" name="plantBasedItem" value="turkey_veggie_sub" data-price="12"> Turkey veggie sub - $12<br>
+                <input type="checkbox" name="plantBasedItem" value="chickpea_wrap" data-price="10"> chickpea wrap - $10<br>
+                <input type="checkbox" name="plantBasedItem" value="quinoa_bowl" data-price="11"> quinoa bowl - $11<br>
+                <input type="checkbox" name="plantBasedItem" value="spinach_salad" data-price="9"> spinach salad - $9<br>
+                <input type="checkbox" name="plantBasedItem" value="vegetarian_pizza" data-price="12"> vegetarian pizza - $12<br>
+                <input type="checkbox" name="plantBasedItem" value="vegan_pasta" data-price="12"> vegan pasta - $12<br>
+                <input type="checkbox" name="plantBasedItem" value="tofu_curry" data-price="11"> tofu curry - $11<br>
+                <input type="checkbox" name="plantBasedItem" value="hummus_wrap" data-price="10"> hummus wrap - $10<br>
+                <input type="checkbox" name="plantBasedItem" value="lentil_soup" data-price="10"> lentil soup - $10<br>
+                <input type="checkbox" name="plantBasedItem" value="chickpea_and_avocado" data-price="11"> chickpea and avocado - $11<br>
+            </div>
+            <div class="option">
+                <label>Add Extra:</label><br>
+                <input type="checkbox" name="extra" value="tofu" data-price="2"> tofu - $2<br>
+                <input type="checkbox" name="extra" value="hummus" data-price="1.5"> hummus - $1.5<br>
+            </div>
+            <p>Total Price: <span id="plantbasedPrice">$0</span></p>
+            <button class="btn-add-to-cart" onclick="addToCart('Plant Based')">Add to Cart</button>
+        </div>
+    </div>
+
+
+    <!-- Modal for Breads -->
+    <div id="breadsModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modalImage" src="Images/bread.avif" alt="Images Modal">
+            <h2>BREADS</h2>
+            <div class="option">
+                        <label for="garlic-bread">Garlic Bread <span class="price">$5</span></label>
+                        <input type="checkbox" name="breadType" id="garlic-bread" value="garlic_bread" data-price="5">
+                        
+                        <label for="cheesy-breadsticks">Cheesy Breadsticks <span class="price">$6</span></label>
+                        <input type="checkbox" name="breadType" id="cheesy-breadsticks" value="cheesy_breadsticks" data-price="6">
+
+                        <label for="focaccia">Focaccia <span class="price">$7</span></label>
+                        <input type="checkbox" name="breadType" id="focaccia" value="focaccia" data-price="7">
+            </div>
+            
+            <p>Total Price: <span id="breadsPrice">$0</span></p>
+            <button class="btn-add-to-cart" onclick="addToCart('Breads')">Add to Cart</button>
+        </div>
+    </div>
+
+
+    <!-- Modal for Sides -->
+    <div id="sidesModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modalImage" src="Images/bites.avif" alt="Images Modal">
+            <h2>SIDES</h2>
+            <div class="option">
+                <label>Choose Side:</label><br>
+                <input type="checkbox" name="sideType" value="fries" data-price="4"> Fries - $4<br>
+                <input type="checkbox" name="sideType" value="onion_rings" data-price="5"> Onion Rings - $5<br>
+                <input type="checkbox" name="sideType" value="mozzarella_sticks" data-price="6"> Mozzarella Sticks - $6<br>
+            </div>
+            <p>Total Price: <span id="sidesPrice">$0</span></p>
+            <button class="btn-add-to-cart" onclick="addToCart('Sides')">Add to Cart</button>
+        </div>
+    </div>
+
+    <!-- Modal for Sweets -->
+    <div id="sweetsModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modalImage" src="Images/Sweets.avif" alt="">
+            <h2>SWEET TREATS</h2>
+            <div class="option">
+                <label>Choose Treat:</label><br>
+                <input type="checkbox" name="sweetType" value="chocolate_brownie" data-price="4"> Chocolate Brownie<br>
+                <input type="checkbox" name="sweetType" value="cheesecake" data-price="5"> Cheesecake<br>
+                <input type="checkbox" name="sweetType" value="apple_pie" data-price="6"> Apple Pie<br>
+            </div>
+            <p>Total Price: <span id="sweetsPrice">$0</span></p>
+            <button class="btn-add-to-cart" onclick="addToCart('Sweets')">Add to Cart</button>
+        </div>
+    </div>
+
+    <!-- Modal for Drinks -->
+    <div id="drinksModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modalImage" src="Images/Drinks.avif" alt="">
+            <h2>DRINKS</h2>
+            <div class="option">
+                <label>Choose Drink:</label><br>
+                <input type="checkbox" name="drinkType" value="soda" data-price="2"> Soda<br>
+                <input type="checkbox" name="drinkType" value="smoothie" data-price="4"> Smoothie<br>
+                <input type="checkbox" name="drinkType" value="iced_tea" data-price="3"> Iced Tea<br>
+            </div>
+            <p>Total Price: <span id="drinksPrice">$0</span></p>
+            <button class="btn-add-to-cart" onclick="addToCart('Drinks')">Add to Cart</button>
+        </div>
+    </div>
     </main>
 
     <!--Contact Us section-->

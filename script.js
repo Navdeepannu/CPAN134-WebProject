@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-            
     // Function to open the modal and populate it with data
     function openModal(button) {
         const modal = document.querySelector(button.dataset.modalTarget);
@@ -14,13 +13,12 @@ document.addEventListener('DOMContentLoaded', function() {
         modal.style.display = 'block';
     }
 
-    // Attach click event to "Quick View" buttons
+    // Attach click event to "Quick View" buttons for pizza
     document.querySelectorAll('.btn-quick-view').forEach(button => {
         button.addEventListener('click', function() {
             openModal(this);
         });
     });
-
 
     // Close the modal when the user clicks on <span> (x)
     document.querySelectorAll('.modal .close').forEach(closeButton => {
@@ -34,22 +32,107 @@ document.addEventListener('DOMContentLoaded', function() {
         if (event.target.classList.contains('modal')) {
             event.target.style.display = 'none';
         }
-    }
+    };
+
+    // Add event listener to toppings checkboxes to trigger price calculation
+    document.querySelectorAll('input[name="toppings"]').forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            calculatePrice();
+        });
+    });
+
+    // Add event listener to size radio buttons to trigger price calculation
+    document.querySelectorAll('input[name="size"]').forEach(radioButton => {
+        radioButton.addEventListener('change', function() {
+            calculatePrice();
+        });
+    });
+
+    // Add event listener to quantity input to trigger price calculation
+    document.getElementById('modalQuantity').addEventListener('input', function() {
+        calculatePrice();
+    });
 });
 
-// Add to cart function
-let cartCounter = 0;
+// Function to calculate the total price based on selected options in the modal
+function calculatePrice() {
+    // Get selected options from the modal
+    const modalToppings = getSelectedToppings();
+    const modalSize = document.querySelector('input[name="size"]:checked').value;
+    const modalQuantity = parseInt(document.getElementById('modalQuantity').value) || 1;
 
-function addtoCart() {
-    // Increment the cart counter
-    cartCounter++;
-    updateCartCounter();
+    // Set base price based on size
+    let basePrice;
+    switch (modalSize) {
+        case 'small':
+            basePrice = 10;
+            break;
+        case 'medium':
+            basePrice = 12;
+            break;
+        case 'large':
+            basePrice = 15;
+            break;
+        case 'x-large':
+            basePrice = 18;
+            break;
+        default:
+            basePrice = 10;
+    }
+
+    // Calculate total price including toppings and quantity
+    let totalPrice = basePrice + ((modalToppings.length * 2) * modalQuantity);
+
+    // Display total price in the modal
+    document.getElementById('modalPrice').textContent = `$${totalPrice}`;
 }
 
-// Update the cart counter
-function updateCartCounter() {
-    const cartCounterElement = document.getElementById('cartCounter');
-    if (cartCounterElement) {
-        cartCounterElement.textContent = cartCounter;
+// Function to get selected toppings
+function getSelectedToppings() {
+    const toppings = document.querySelectorAll('input[name="toppings"]:checked');
+    const selectedToppings = [];
+    toppings.forEach(topping => {
+        selectedToppings.push(topping.value);
+    });
+    return selectedToppings;
+}
+
+// Function to add the selected item to cart from the modal
+// Function to calculate the total price based on selected options in the modal
+function calculatePrice() {
+    // Get selected options from the modal
+    const modalToppings = getSelectedToppings();
+    const modalSize = document.querySelector('input[name="size"]:checked').value;
+    let modalQuantity = parseInt(document.getElementById('modalQuantity').value) || 1;
+
+    // Set base price based on size
+    let basePrice;
+    switch (modalSize) {
+        case 'small':
+            basePrice = 10;
+            break;
+        case 'medium':
+            basePrice = 12;
+            break;
+        case 'large':
+            basePrice = 15;
+            break;
+        case 'x-large':
+            basePrice = 18;
+            break;
+        default:
+            basePrice = 10;
     }
+
+    // Calculate total price including toppings and quantity
+    let totalPrice = basePrice + (modalToppings.length * 2);
+
+    // Double the total price for each additional quantity
+    while (modalQuantity > 1) {
+        totalPrice *= 2;
+        modalQuantity--;
+    }
+
+    // Display total price in the modal
+    document.getElementById('modalPrice').textContent = `$${totalPrice}`;
 }
