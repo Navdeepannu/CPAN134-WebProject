@@ -40,7 +40,7 @@
             <li class="cart">
                 <a href="cart.html" class="cart-icon">
                     <i class="fa-solid fa-cart-shopping"></i>
-                    <span class="cart-counter" id="cartCounter">0</span>
+                    <span class="cart-counter" id="cartCount">0</span>
                 </a>
             </li>
         </ul>
@@ -284,7 +284,7 @@
                         <label for="focaccia">Focaccia <span class="price">$7</span></label>
                         <input type="checkbox" name="breadType" id="focaccia" value="focaccia" data-price="7">
             </div>
-            
+
             <p>Total Price: <span id="breadsPrice">$0</span></p>
             <button class="btn-add-to-cart" onclick="addToCart('Breads')">Add to Cart</button>
         </div>
@@ -302,6 +302,11 @@
                 <input type="checkbox" name="sideType" value="fries" data-price="4"> Fries - $4<br>
                 <input type="checkbox" name="sideType" value="onion_rings" data-price="5"> Onion Rings - $5<br>
                 <input type="checkbox" name="sideType" value="mozzarella_sticks" data-price="6"> Mozzarella Sticks - $6<br>
+                <input type="checkbox" name="sideType" value="breaded_pork_slices" data-price="7"> Breaded Pork Slices - $7<br>
+                <input type="checkbox" name="sideType" value="spinach_and_artichoke" data-price="8"> Spinach and Artichoke - $8<br>
+                <input type="checkbox" name="sideType" value="stuffed_mushrooms" data-price="9"> Stuffed Mushrooms - $9<br>
+                <input type="checkbox" name="sideType" value="calabrese_rolls" data-price="9"> Calabrese Rolls - $9<br>
+                <input type="checkbox" name="sideType" value="pepPERONI_bites" data-price="10"> PepPERONI Bites - $10<br>
             </div>
             <p>Total Price: <span id="sidesPrice">$0</span></p>
             <button class="btn-add-to-cart" onclick="addToCart('Sides')">Add to Cart</button>
@@ -316,9 +321,11 @@
             <h2>SWEET TREATS</h2>
             <div class="option">
                 <label>Choose Treat:</label><br>
-                <input type="checkbox" name="sweetType" value="chocolate_brownie" data-price="4"> Chocolate Brownie<br>
-                <input type="checkbox" name="sweetType" value="cheesecake" data-price="5"> Cheesecake<br>
-                <input type="checkbox" name="sweetType" value="apple_pie" data-price="6"> Apple Pie<br>
+                <input type="checkbox" name="sweetType" value="chocolate_brownie" data-price="4"> Chocolate Brownie - $4<br>
+                <input type="checkbox" name="sweetType" value="cheesecake" data-price="5"> Cheesecake - $5<br>
+                <input type="checkbox" name="sweetType" value="apple_pie" data-price="6"> Apple Pie - $6<br>
+                <input type="checkbox" name="sweetType" value="banana_split" data-price="6"> Banana Split - $6<br>
+                <input type="checkbox" name="sweetType" value="cinnamon_roll" data-price="5"> Cinnamon Roll - $5<br>
             </div>
             <p>Total Price: <span id="sweetsPrice">$0</span></p>
             <button class="btn-add-to-cart" onclick="addToCart('Sweets')">Add to Cart</button>
@@ -333,9 +340,12 @@
             <h2>DRINKS</h2>
             <div class="option">
                 <label>Choose Drink:</label><br>
-                <input type="checkbox" name="drinkType" value="soda" data-price="2"> Soda<br>
-                <input type="checkbox" name="drinkType" value="smoothie" data-price="4"> Smoothie<br>
-                <input type="checkbox" name="drinkType" value="iced_tea" data-price="3"> Iced Tea<br>
+                <input type="checkbox" name="drinkType" value="soda" data-price="2"> Soda - $2<br>
+                <input type="checkbox" name="drinkType" value="lemonade" data-price="2"> Lemonade - $2<br>
+                <input type="checkbox" name="drinkType" value="fruit_juice" data-price="3"> Fruit Juice - $3<br>
+                <input type="checkbox" name="drinkType" value="smoothie" data-price="4"> Smoothie - $4<br>
+                <input type="checkbox" name="drinkType" value="iced_tea" data-price="3"> Iced Tea - $3<br>
+                <input type="checkbox" name="drinkType" value="coffee" data-price="4"> Coffee - $4<br>
             </div>
             <p>Total Price: <span id="drinksPrice">$0</span></p>
             <button class="btn-add-to-cart" onclick="addToCart('Drinks')">Add to Cart</button>

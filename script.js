@@ -1,3 +1,6 @@
+// Initialize cart count
+let cartCount = 0;
+
 document.addEventListener('DOMContentLoaded', function() {
     // Function to open the modal and populate it with data
     function openModal(button) {
@@ -59,50 +62,6 @@ function calculatePrice() {
     // Get selected options from the modal
     const modalToppings = getSelectedToppings();
     const modalSize = document.querySelector('input[name="size"]:checked').value;
-    const modalQuantity = parseInt(document.getElementById('modalQuantity').value) || 1;
-
-    // Set base price based on size
-    let basePrice;
-    switch (modalSize) {
-        case 'small':
-            basePrice = 10;
-            break;
-        case 'medium':
-            basePrice = 12;
-            break;
-        case 'large':
-            basePrice = 15;
-            break;
-        case 'x-large':
-            basePrice = 18;
-            break;
-        default:
-            basePrice = 10;
-    }
-
-    // Calculate total price including toppings and quantity
-    let totalPrice = basePrice + ((modalToppings.length * 2) * modalQuantity);
-
-    // Display total price in the modal
-    document.getElementById('modalPrice').textContent = `$${totalPrice}`;
-}
-
-// Function to get selected toppings
-function getSelectedToppings() {
-    const toppings = document.querySelectorAll('input[name="toppings"]:checked');
-    const selectedToppings = [];
-    toppings.forEach(topping => {
-        selectedToppings.push(topping.value);
-    });
-    return selectedToppings;
-}
-
-// Function to add the selected item to cart from the modal
-// Function to calculate the total price based on selected options in the modal
-function calculatePrice() {
-    // Get selected options from the modal
-    const modalToppings = getSelectedToppings();
-    const modalSize = document.querySelector('input[name="size"]:checked').value;
     let modalQuantity = parseInt(document.getElementById('modalQuantity').value) || 1;
 
     // Set base price based on size
@@ -135,4 +94,36 @@ function calculatePrice() {
 
     // Display total price in the modal
     document.getElementById('modalPrice').textContent = `$${totalPrice}`;
+}
+
+// Function to get selected toppings
+function getSelectedToppings() {
+    const toppings = document.querySelectorAll('input[name="toppings"]:checked');
+    const selectedToppings = [];
+    toppings.forEach(topping => {
+        selectedToppings.push(topping.value);
+    });
+    return selectedToppings;
+}
+
+// Function to increment cart count and update the cart sign
+function addToCart() {
+    cartCount++;
+    document.getElementById('cartCount').textContent = cartCount;
+
+    // Add item to cart storage (localStorage)
+    const cartItem = {
+        image: document.getElementById('modalImage').src,
+        title: document.getElementById('modalTitle').textContent,
+        description: document.getElementById('modalDescription').textContent,
+        price: document.getElementById('modalPrice').textContent
+    };
+    saveCartItem(cartItem);
+}
+
+// Function to save cart item to localStorage
+function saveCartItem(item) {
+    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    cartItems.push(item);
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
 }
