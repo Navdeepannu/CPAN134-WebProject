@@ -17,7 +17,7 @@ body {
     background-color: #ffffff; /* A blue background color for the navbar */
     color: #000000; /* White color for text to contrast with the navbar background */
     padding: 10px 20px; /* Adding padding for spacing */
-    margin: 0px 15px;
+   
 }
 
 .nav-list {
@@ -119,11 +119,17 @@ body {
 
 }
 
+.staff img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+}
+
 .container img {
     border-radius: 30px;
     box-shadow: 0 0 10px rgba(72, 71, 71, 1);
-     max-width: 30%;
+    max-width: 30%;
     height: auto;  
+    cursor: pointer;
       
 }
 

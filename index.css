@@ -27,7 +27,7 @@ body {
     align-items: center;
     background-color: whitesmoke; 
     padding: 10px 20px; /* Adding padding for spacing */
-    margin: 0px 15px;
+    
 }
 
 .nav-list {
@@ -141,10 +141,17 @@ body {
     box-shadow: -12px 7px 10px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     height: 400px; 
     width: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out; 
+}
+
+.grid-item:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
 }
 
 .grid-item h3 {
@@ -226,30 +233,43 @@ body {
     align-items: center;
 }
 
-.button {
+.option-button {
     display: inline-block;
     background-color: #f2f2f2;
     color: #333;
     padding: 8px 16px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin: 10px;
 }
 
-.button:hover {
+.option-button:hover {
     background-color: #ddd;
+    transform: scale(1.09);
+    transition: transform 0.3s ease-in-out;
+}
+
+input[type="radio"] {
+    display: none;
 }
 
 input[type="checkbox"] {
     display: none;
 }
 
-input[type="checkbox"] + .button {
+input[type="checkbox"] + .option-button {
     margin-right: 10px;
 }
 
-input[type="checkbox"]:checked + .button {
+input[type="radio"]:checked + .option-button {
+    background-color: #4caf50;
+    color: white;
+}
+
+
+input[type="checkbox"]:checked + .option-button {
     background-color: #4caf50;
     color: white;
 }
@@ -263,6 +283,21 @@ input[type="checkbox"]:checked + .button {
     margin-bottom: 10px;
 }
 
+.cart-message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: red;
+    font-size: large;
+    z-index: 999;
+    background-color: #f0f0f0;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
 
 /* Close button */
 .close {
