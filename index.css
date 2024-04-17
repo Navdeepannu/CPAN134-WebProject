@@ -4,9 +4,20 @@ body, h1, h2, p, ul {
     padding: 0;
 }
 
+:root {
+    --background-color: #f5f5f5;
+    --primary-color: #1E90FF ;
+    --secondary-color: #3e3e3e;
+    --button-color: #7b9e83;
+    --info-color: #17a2b8;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+}
+
 body {
-    font-family: proxima-nova, sans-serif;
-    background-color: #f5f5f5;
+    font-family:'Inter', sans-serif;
+    background-color: var(--background-color);
+    color: var(--dark-color);
 }
 
 /* Navbar styling */
@@ -14,9 +25,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #ffffff; /* A blue background color for the navbar */
-    color: #000000; /* White color for text to contrast with the navbar background */
+    background-color: whitesmoke; 
     padding: 10px 20px; /* Adding padding for spacing */
+    
 }
 
 .nav-list {
@@ -31,16 +42,16 @@ body {
 
 /* Navbar links styling */
 .logo a, .login, .create_account, .cart a {
-    color: #333;
+    color: var(--dark-color);
     text-decoration: none;
     padding: 10px; 
 } 
 
 /* Hover effect on links in navbar */
 .navbar-right li:hover, .nav-list li a:hover {
-    background-color: #a5c9ed; /* Darker shade of blue for hover effect */
-    border-radius: 5px; /* Rounded corners for a smoother look */
-    transition: background-color 0.4s ease-in-out; /* Smooth transition for hover effect */
+    background-color: #c7d5df; 
+    border-radius: 10px;
+    transition: background-color 0.4s ease-in; /* Smooth transition for hover effect */
 }
 
 /* Account and Cart Styling */
@@ -50,6 +61,25 @@ body {
     padding: 10px;
 }
 
+/* Cart icon styling */
+.navbar .cart .cart-icon {
+    position: relative;
+    display: inline-block;
+    font-size:s 24px;
+}
+
+.navbar .cart .cart-icon .cart-counter {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: #e31837;
+    color: white;
+    border-radius: 50%;
+    padding: 4px 7px;
+    font-size: 12px;
+}
+
+
 /* Navbar Responsive adjustments */
 @media (max-width: 768px) {
     .navbar {
@@ -57,9 +87,6 @@ body {
         align-items: flex-start;
     }
 
-    .navbar-right {
-        margin-top: 10px;
-    }
 
     .nav-list {
         flex-direction: column;
@@ -68,8 +95,33 @@ body {
 
     .nav-list li {
         margin-right: 0;
-        margin-bottom: 10px;
     }
+
+    .account .cart {
+        padding: 0px;
+    }
+}
+
+/* Hero Section styling */
+.hero {
+    background-image :url('Images/background-image.jpeg');
+    background-size :cover;
+    background-position :center;
+    background-repeat :no-repeat;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.7em;
+    max-width: 600px;
+    margin: 0 auto;
 }
 /* Hero Section styling */
 .hero {
@@ -96,9 +148,10 @@ body {
 /* Main Body styling with CSS Grid */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     grid-gap: 20px;
     padding: 20px;
+    justify-items: stretch;
 }
 
 .grid-item {
@@ -107,16 +160,181 @@ body {
     text-align: center;
     border-radius: 20px;
     box-shadow: -12px 7px 10px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 400px; 
+    width: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out; 
 }
 
-.grid-item img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
+.grid-item:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
 }
 
 .grid-item h3 {
     margin-top: 10px;
+}
+
+.grid-item img {
+    max-width: 100%;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.btn-add-to-cart {
+    background-color: #007bff; 
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+}
+
+.btn-add-to-cart span {
+    max-width: 80%; /* Limit the width of the button text to 80% of the button width */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.btn-add-to-cart:hover {
+    background-color: #0056b3; /* Darker blue color on hover */
+}
+
+
+/* Modal container */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Modal content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 6% auto;
+    padding: 20px;
+    border: 1px solid #a9a8a8;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 20px;
+    color: #333;
+}
+
+#modalImage {
+    max-width: 80%;
+    max-height: 100%;
+}
+
+#modalTitle {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#modalDescription {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.option {
+    display: flex;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.option-button {
+    display: inline-block;
+    background-color: #f2f2f2;
+    color: #333;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 10px;
+}
+
+.option-button:hover {
+    background-color: #ddd;
+    transform: scale(1.09);
+    transition: transform 0.3s ease-in-out;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"] + .option-button {
+    margin-right: 10px;
+}
+
+input[type="radio"]:checked + .option-button {
+    background-color: #4caf50;
+    color: white;
+}
+
+
+input[type="checkbox"]:checked + .option-button {
+    background-color: #4caf50;
+    color: white;
+}
+
+.option label {
+    margin-right: 10px;
+}
+
+#modalPrice {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.cart-message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: red;
+    font-size: large;
+    z-index: 999;
+    background-color: #f0f0f0;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+/* Close button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 /* Contact Us Section styling */

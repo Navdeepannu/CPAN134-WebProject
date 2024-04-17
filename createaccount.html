@@ -18,6 +18,9 @@
             <li class="logo">
                 <a href="Index.html"><span class="logo">BEN'S PIZZA</span></a>
             </li>
+
+            <!-- This list item will hold the user's name -->
+            <li class="account" id="userAccount" style="display: none;"></li>
         </ul>
 
         <!--    Navbar Right Section -->
@@ -37,16 +40,16 @@
             </li>
 
             <li class="cart">
-                <a href="cart.html">
+                <a href="cart.html" class="cart-icon">
                     <i class="fa-solid fa-cart-shopping"></i>
-                    <span>Cart</span>
+                    <span class="cart-counter" id="cartCounter">0</span>
                 </a>
             </li>
         </ul>
     </nav>
 
     <!-- Create Account Form -->
-    <div class="form-container" style="margin-top: 20em;">
+    <div class="form-container" id="create_account_container">
         <form id="createAccountForm">
             <h2>Ben's Pizza - Create Account</h2>
             <div class="input-group">
@@ -77,10 +80,52 @@
                 <label for="dob">Date of Birth:</label>
                 <input type="date" id="dob" required>
             </div>
-            <button type="submit">Create Account</button>
+            <button type="submit" id="createAccountButton">Create Account</button>
             <p>Already have an account? <a href="login.html">Login here</a>.</p>
         </form>
     </div>
-    <script src="script.js"></script>
+    <script>
+     
+        // Check if the user's first name is stored in localStorage
+        var firstName = localStorage.getItem("firstName");
+        if (firstName) {
+            // Update the navbar with the user's name
+            var userAccount = document.getElementById("userAccount");
+            userAccount.textContent = "Hi, " + firstName;
+            userAccount.style.display = "block"; // Show the user's name in the navbar
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("createAccountForm").addEventListener("submit", function(event) {
+                event.preventDefault(); // Prevent form submission
+
+                // Get the value of the first name input
+                var firstName = document.getElementById("firstName").value; var lastName = document.getElementById("lastName").value;
+                var email = document.getElementById("createEmail").value;
+                var password = document.getElementById("createPassword").value;
+                var confirmPassword = document.getElementById("confirmPassword").value;
+                var phoneNumber = document.getElementById("phoneNumber").value;
+                var dob = document.getElementById("dob").value;
+
+                // Store the user's first name in localStorage
+                localStorage.setItem("firstName", firstName);
+
+                // Update the navbar with the user's name
+                var userAccount = document.getElementById("userAccount");
+                userAccount.textContent = "Hi, " + firstName;
+                userAccount.style.display = "block"; // Show the user's name in the navbar
+
+                // Clear the form inputs
+                document.getElementById("firstName").value = "";
+                document.getElementById("lastName").value = "";
+                document.getElementById("createEmail").value = "";
+                document.getElementById("createPassword").value = "";
+                document.getElementById("confirmPassword").value = "";
+                document.getElementById("phoneNumber").value = "";
+                document.getElementById("dob").value = "";
+        
+            });
+        });
+    </script>
 </body>
 </html>

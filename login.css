@@ -1,5 +1,5 @@
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -33,6 +33,7 @@ body {
 .navbar-right {
     margin-right: 5px;
 }
+
 .logo {
     font-size: 24px;
 }
@@ -59,27 +60,45 @@ body {
 
 }
 
-/* Navbar Responsive adjustments */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+/* Cart icon styling */
+.navbar .cart .cart-icon {
+    position: relative;
+    display: inline-block;
+    font-size:s 24px;
+}
 
-    .navbar-right {
-        margin-top: 10px;
+.navbar .cart .cart-icon .cart-counter {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: #e31837;
+    color: white;
+    border-radius: 50%;
+    padding: 4px 7px;
+    font-size: 12px;
+}
+
+/* Navbar Responsive adjustments */
+@media (max-width: 625px) {
+    .navbar-right .login,
+    .navbar-right .create_account {
+        display: none;
     }
 
     .nav-list {
-        flex-direction: column;
-        align-items: flex-start;
+        padding:0;
     }
 
-    .nav-list li {
+    .navbar-right {
         margin-right: 0;
-        margin-bottom: 10px;
     }
-}  
+
+    .logo{
+        margin-right: auto;
+    }
+
+}
+ 
 
 
 /* Form Styling */
@@ -93,6 +112,10 @@ body {
     width: 300px;
     margin-top: 50px;
     align-items: center;
+}
+
+#create_account_container {
+    margin-top: 20em;
 }
 
 form {
