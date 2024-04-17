@@ -54,9 +54,9 @@ Our footer contains essential information and links:
   - And more!
 
 Follow us on social media:
-- Facebook: ![Facebook](Images/facebook.png)
-- Twitter: ![Twitter](Images/twitter.png)
-- Instagram: ![Instagram](Images/instagram.png)
+- Facebook: ![Facebook]
+- Twitter: ![Twitter
+- Instagram: ![Instagram]
 
 &copy; 2024 BEN'S PIZZA. All rights reserved.
 
@@ -69,7 +69,7 @@ Explore additional pages for more information:
 ## Contributors
 Meet the team behind BEN'S PIZZA:
 
-1. **Benjamin Smith**
+1. **Abu**
    - GitHub: [Abu-W](https://github.com/Abubakar-Warraich)
 
 2. **Bhupinder Natt**

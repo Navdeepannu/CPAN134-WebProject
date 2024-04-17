@@ -123,6 +123,27 @@ body {
     max-width: 600px;
     margin: 0 auto;
 }
+/* Hero Section styling */
+.hero {
+    background-image :url('Images/background-image.jpeg');
+    background-size :cover;
+    background-position :center;
+    background-repeat :no-repeat;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.7em;
+    max-width: 600px;
+    margin: 0 auto;
+}
 
 /* Main Body styling with CSS Grid */
 .grid-container {
@@ -184,6 +205,7 @@ body {
 .btn-add-to-cart:hover {
     background-color: #0056b3; /* Darker blue color on hover */
 }
+
 
 /* Modal container */
 .modal {
@@ -383,8 +405,6 @@ input[type="checkbox"]:checked + .option-button {
         grid-template-columns: 1fr;
     }
 }
-
-
 
 /* Footer styling */
 footer {
