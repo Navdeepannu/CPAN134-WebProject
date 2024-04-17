@@ -1,7 +1,4 @@
-let cartCount = 0;
-
 document.addEventListener('DOMContentLoaded', function() {
-    
     // Function to open the modal and populate it with data
     function openModal(button) {
         const modal = document.querySelector(button.dataset.modalTarget);
@@ -15,13 +12,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         modal.style.display = 'block';
     }
-
-    // Attach click event to "Quick View" buttons for all items
-    document.querySelectorAll('.btn-quick-view').forEach(button => {
-        button.addEventListener('click', function() {
-            openModal(this);
-        });
-    });
 
     // Close the modal when the user clicks on <span> (x)
     document.querySelectorAll('.modal .close').forEach(closeButton => {
@@ -37,113 +27,61 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    // Add event listener to toppings checkboxes to trigger price calculation
-    document.querySelectorAll('input[name="toppings"]').forEach(checkbox => {
-        checkbox.addEventListener('change', function() {
-            calculatePrice();
-        });
-    });
-
-    // Add event listener to size radio buttons to trigger price calculation
-    document.querySelectorAll('input[name="size"]').forEach(radioButton => {
-        radioButton.addEventListener('change', function() {
-            calculatePrice();
-        });
-    });
-
-    // Add event listener to choose sandwich to trigger price calculation
-    document.querySelectorAll('input[name="sandwichType"]').forEach(checkbox => {
-        checkbox.addEventListener('change', function() {
-            calculatePrice();
-        });
-    });
-
-    // Add event listener to choose drink to trigger price calculation
-    document.querySelectorAll('input[name="drinkType"]').forEach(checkbox => {
-        checkbox.addEventListener('change', function() {
-            calculatePrice();
-        });
-    });
-
-    // Add event listener to choose sides to trigger price calculation
-    document.querySelectorAll('input[name="sideType"]').forEach(checkbox => {
-        checkbox.addEventListener('change', function() {
-            calculatePrice();
-        });
-    });
-
-    // Add event listener to plant radio buttons to trigger price calculation
-    document.querySelectorAll('input[name="plantBasedItem"]').forEach(checkbox => {
-        checkbox.addEventListener('change', function() {
-            calculatePrice();
-        });
-    });
-
-    // Add event listener to bread radio buttons to trigger price calculation
-    document.querySelectorAll('input[name="breadType"]').forEach(checkbox => {
-        checkbox.addEventListener('change', function() {
-            calculatePrice();
-        });
-    });
-
-    // Add event listener to sweet radio buttons to trigger price calculation
-    document.querySelectorAll('input[name="sweetType"]').forEach(checkbox => {
-        checkbox.addEventListener('change', function() {
-            calculatePrice();
-        });
-    });
-
-    // Add event listener to quantity input to trigger price calculation
-    document.getElementById('modalQuantity').addEventListener('input', function() {
-        calculatePrice();
-    });
-
-    // Add event listener to "Add to Cart" buttons for all modals
-    document.querySelectorAll('.btn-add-to-cart').forEach(button => {
-        button.addEventListener('click', function() {
-            addToCart();
-        });
-    });
-
-
     // Function to calculate the total price based on selected options in the modal
     function calculatePrice() {
-        // Get selected options from the modal
-    const modalToppings = getSelectedToppings();
-    const modalSize = document.querySelector('input[name="size"]:checked').value;
-    let modalQuantity = parseInt(document.getElementById('modalQuantity').value) || 1;
+        const modalToppings = getSelectedToppings();
+        const modalSize = document.querySelector('input[name="size"]:checked').value;
+        let modalQuantity = parseInt(document.getElementById('modalQuantity').value) || 1;
 
-    // Set base price based on size
-    let basePrice;
-    switch (modalSize) {
-        case 'small':
-            basePrice = 10;
-            break;
-        case 'medium':
-            basePrice = 12;
-            break;
-        case 'large':
-            basePrice = 15;
-            break;
-        case 'x-large':
-            basePrice = 18;
-            break;
-        default:
-            basePrice = 10;
+        let basePrice;
+
+        // Calculate base price based on size
+        switch (modalSize) {
+            case 'small':
+                basePrice = 10;
+                break;
+            case 'medium':
+                basePrice = 12;
+                break;
+            case 'large':
+                basePrice = 15;
+                break;
+            case 'x-large':
+                basePrice = 18;
+                break;
+            default:
+                basePrice = 10;
+        }
+
+        // Calculate total price for pizza
+        let totalPrice = basePrice + (modalToppings.length * 2);
+        while (modalQuantity > 1) {
+            totalPrice *= 2;
+            modalQuantity--;
+        }
+
+        // Display total price
+        document.getElementById('pizzaPrice').textContent = `$${totalPrice.toFixed(2)}`;
     }
 
-    // Calculate total price including toppings and quantity
-    let totalPrice = basePrice + (modalToppings.length * 2);
+    // Function to reset options to default values
+    function resetOptions() {
+        document.querySelectorAll('input[name="toppings"]').forEach(checkbox => {
+            checkbox.checked = false;
+        });
 
-    // Double the total price for each additional quantity
-    while (modalQuantity > 1) {
-        totalPrice *= 2;
-        modalQuantity--;
+        // Set default size option
+        const smallSize = document.querySelector('input[name="size"][value="small"]');
+        if (smallSize) {
+            smallSize.checked = true;
+        }
+
+        // Set default quantity
+        document.getElementById('modalQuantity').value = 1;
+
+        // Calculate and display default price
+        calculatePrice();
     }
-
-    // Display total price in the modal
-    document.getElementById('modalPrice').textContent = `$${totalPrice.toFixed(2)}`;
-}
 
     // Function to get selected toppings
     function getSelectedToppings() {
@@ -154,102 +92,82 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         return selectedToppings;
     }
-
+    
     // Function to add item to cart
     function addToCart() {
-        cartCount++;
+        const modalImage = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalPrice = document.getElementById('pizzaPrice');
+
+        if (modalImage && modalTitle && modalDescription && modalPrice) {
+            const imageSrc = modalImage.src;
+            const title = modalTitle.textContent;
+            const description = modalDescription.textContent;
+            const price = modalPrice.textContent;
+
+            const cartItem = {
+                image: imageSrc,
+                title: title,
+                description: description,
+                price: price,
+                quantity: 1
+            };
+
+            // Retrieve cart items from local storage
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+            // Check if the item already exists in the cart
+            const existingCartItem = cartItems.find(item => item.title === cartItem.title);
+
+            if (existingCartItem) {
+                existingCartItem.quantity++;
+            } else {
+                cartItems.push(cartItem);
+            }
+
+            // Save cart items to local storage
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+            // Update cart count
+            updateCartCount();
+
+            // Reset options
+            resetOptions();
+        } else {
+            console.error('One or more required elements not found.');
+        }
+    }
+
+    // Function to update cart count
+    function updateCartCount() {
+        let cartCount = 0;
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        cartItems.forEach(item => {
+            cartCount += item.quantity;
+        });
         document.getElementById('cartCount').textContent = cartCount;
-
-        // Reset options to default
-        resetOptions();
-
-        // Add item to cart storage (localStorage)
-        const cartItem = {
-            image: document.getElementById('modalImage').src,
-            title: document.getElementById('modalTitle').textContent,
-            description: document.getElementById('modalDescription').textContent,
-            price: document.getElementById('modalPrice').textContent
-        };
-        saveCartItem(cartItem);
     }
 
-    // Generic function to calculate the total price for a given modal
-    function calculateModalPrice(modalId, itemType) {
-        const checkboxes = document.querySelectorAll(`#${modalId} input[name="${itemType}"]:checked`);
-        let totalPrice = 0;
-
-        checkboxes.forEach(checkbox => {
-            totalPrice += parseFloat(checkbox.dataset.price);
+    // Attach click event to "Quick View" buttons for all items
+    document.querySelectorAll('.btn-quick-view').forEach(button => {
+        button.addEventListener('click', function() {
+            openModal(this);
         });
+    });
 
-        // Additional logic for quantity
-        const quantityInput = document.querySelector(`#${modalId} .modal-quantity`);
-        const quantity = parseInt(quantityInput.value) || 1;
-        totalPrice *= quantity;
+    // Add event listener to "Add to Cart" button in the modal
+    document.getElementById('modalAddToCart').addEventListener('click', function() {
+        addToCart(); // Call the addToCart function when the button is clicked
+    });
 
-        // Update the total price in the modal
-        document.querySelector(`#${modalId} span[id="${itemType}Price"]`).textContent = `$${totalPrice.toFixed(2)}`;
-    }
-
-    // Function to add event listeners for a given modal
-    function addEventListeners(modalId, itemType) {
-        document.querySelector(`#${modalId} .modal-quantity`).addEventListener('input', () => {
-            calculateModalPrice(modalId, itemType);
+    // Add event listeners for toppings checkboxes, size radio buttons, and quantity input to trigger price calculation
+    document.querySelectorAll('input[name="toppings"], input[name="size"], #modalQuantity').forEach(input => {
+        input.addEventListener('change', function() {
+            calculatePrice();
         });
+    });
 
-        document.querySelectorAll(`#${modalId} input[name="${itemType}"]`).forEach(input => {
-            input.addEventListener('change', () => {
-                calculateModalPrice(modalId, itemType);
-            });
-        });
-    }
-    // Add event listeners for each modal
-    addEventListeners('sandwicheModal', 'sandwichType');
-    addEventListeners('plantbasedModal', 'plantBasedItem');
-    addEventListeners('breadsModal', 'breadType');
-    addEventListeners('sidesModal', 'sideType');
-    addEventListeners('sweetsModal', 'sweetType');
-    addEventListeners('drinksModal', 'drinkType');
-
-
-
-    // Function to reset options to default
-    function resetOptions() {
-        // Reset toppings checkboxes
-        document.querySelectorAll('input[name="toppings"]').forEach(checkbox => {
-            checkbox.checked = false;
-        });
-
-        // Reset size radio buttons
-        document.querySelectorAll('input[name="size"]').forEach(radioButton => {
-            if (radioButton.value === 'small') {
-                radioButton.checked = true; // Set small as default
-            } else {
-                radioButton.checked = false;
-            }
-        });
-
-        // Reset dough radio buttons
-        document.querySelectorAll('input[name="dough"]').forEach(radioButton => {
-            if (radioButton.value === 'regular') {
-                radioButton.checked = true; // Set thick as default
-            } else {
-                radioButton.checked = false;
-            }
-        });
-
-
-        // Reset quantity input
-        document.getElementById('modalQuantity').value = 1;
-
-        // Recalculate price
-        calculatePrice();
-    }
-
-    // Function to save cart item to localStorage
-    function saveCartItem(item) {
-        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-        cartItems.push(item);
-        localStorage.setItem('cartItems', JSON.stringify(cartItems));
-    }
+    // Call resetOptions() to set default options and display default price when the modal is opened
+    resetOptions();
 });

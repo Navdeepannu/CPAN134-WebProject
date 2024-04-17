@@ -10,6 +10,40 @@
     <script src="https://kit.fontawesome.com/2127b2ef1e.js" crossorigin="anonymous"></script>  <!-- Font Awesome -->
     <script src="script.js"></script> <!--Javascript-->
 
+    <style>
+        /* CSS styles for the contact form and message */
+        .contact-message {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            z-index: 999;
+            animation: fadeInOut 2.5s ease forwards; /* Animation for fading in and out */
+            display: none;
+        }
+
+        /* Keyframes for fading in and out */
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -20,6 +54,9 @@
             <li class="logo">
                 <a href="Index.html"><span class="logo">BEN'S PIZZA</span></a>
             </li>
+
+            <!-- This list item will hold the user's name -->
+            <li class="account" id="userAccount" style="display: none;"></li>
         </ul>
 
         <!--    Navbar Right Section -->
@@ -63,7 +100,7 @@
             <img src="Images/meat.avif" alt="meat">
             <h3>MEAT FAVOURITES</h3>
             <p>A pizza boasts a hearty blend of savory meats atop a cheesy crust.</p>
-            <button class="btn-quick-view btn-add-to-cart pizza1" data-modal-target="#genericModal" data-image="Images/meat.avif" data-title="MEAT FAVOURITES" data-description="Meat Favourites Description">Quick View</button>
+            <button class="btn-quick-view btn-add-to-cart pizza1" data-modal-target="#genericModal" data-image="Images/meat.avif" data-title="MEAT FAVOURITES" data-description="Meat Favourites Description">Customize</button>
             <button class="btn-add-to-cart" onclick="addToCart()">Add to cart</button>
         </div>
 
@@ -72,7 +109,7 @@
             <img src="Images/Meat_pizza.avif" alt="veggie">
             <h3>VEGGIE</h3>
             <p>A delicious pizza loaded with fresh veggies.</p>
-            <button class="btn-quick-view btn-add-to-cart pizza2" data-modal-target="#genericModal" data-image="Images/Meat_pizza.avif" data-title="VEGGIE" data-description="Veggie pizza description">Quick View</button>
+            <button class="btn-quick-view btn-add-to-cart pizza2" data-modal-target="#genericModal" data-image="Images/Meat_pizza.avif" data-title="VEGGIE" data-description="Veggie pizza description">Customize</button>
             <button class="btn-add-to-cart" onclick="addToCart()">Add to cart</button>
         </div>
     
@@ -81,7 +118,7 @@
             <img src="Images/House_special.avif" alt="specials">
             <h3>HOUSE SPECIALS</h3>
             <p>Our chef's special selection of pizzas.</p>
-            <button class="btn-quick-view btn-add-to-cart pizza3 open" data-modal-target="#genericModal" data-image="Images/House_special.avif" data-title="HOUSE SPECIAL" data-description="Pizza description">Quick View</button>
+            <button class="btn-quick-view btn-add-to-cart pizza3 open" data-modal-target="#genericModal" data-image="Images/House_special.avif" data-title="HOUSE SPECIAL" data-description="Pizza description">Customize</button>
             <button class="btn-add-to-cart" onclick="addToCart()">Add to cart</button>
         </div>
 
@@ -90,7 +127,7 @@
             <img src="Images/sandwich.avif" alt="sandwich">
             <h3>SANDWICHES</h3>
             <p>Our chef's special selection of sandwiches.</p>
-            <button class="btn-quick-view btn-add-to-cart sandwich" data-modal-target="#sandwicheModal" data-title="SANDWICH" data-description="Description" data-image="Images/sandwich.avif">Quick View</button>
+            <button class="btn-quick-view btn-add-to-cart sandwich" data-modal-target="#sandwicheModal" data-title="SANDWICH" data-description="Description" data-image="Images/sandwich.avif">Customize</button>
             <button class="btn-add-to-cart" onclick="addToCart()">Add to cart</button>
         </div>
 
@@ -99,7 +136,7 @@
             <img src="Images/plant.avif" alt="vegan">
             <h3>PLANT BASED</h3>
             <p>Our chef's special selection of vegan options.</p>
-            <button class="btn-quick-view btn-add-to-cart plant_based" data-modal-target="#plantbasedModal" data-title="VEGAN"  data-image="Images/plant.avif" data-description="Description">Quick View</button>
+            <button class="btn-quick-view btn-add-to-cart plant_based" data-modal-target="#plantbasedModal" data-title="VEGAN"  data-image="Images/plant.avif" data-description="Description">Customize</button>
             <button class="btn-add-to-cart" onclick="addToCart()">Add to cart</button>
         </div>
 
@@ -109,7 +146,7 @@
             <img src="Images/Bread.avif" alt="breads">
             <h3>BREADS</h3>
             <p>Delicious bread options to complement your meal.</p>
-            <button class="btn-quick-view btn-add-to-cart breads" data-modal-target="#breadsModal" data-title="BREAD" data-image="Images/Bread.avif" data-description="Description">Quick View</button>
+            <button class="btn-quick-view btn-add-to-cart breads" data-modal-target="#breadsModal" data-title="BREAD" data-image="Images/Bread.avif" data-description="Description">Customize</button>
             <button class="btn-add-to-cart" onclick="addToCart()">Add to cart</button>
         </div>
 
@@ -118,7 +155,7 @@
             <img src="Images/bites.avif" alt="plantbased">
             <h3>SIDES</h3>
             <p>Perfect sides to accompany your pizza.</p>
-            <button class="btn-quick-view btn-add-to-cart sides" data-modal-target="#sidesModal" data-title="SIDES" data-image="Images/bites.avif" data-description="Sides description">Quick View</button>
+            <button class="btn-quick-view btn-add-to-cart sides" data-modal-target="#sidesModal" data-title="SIDES" data-image="Images/bites.avif" data-description="Sides description">Customize</button>
             <button class="btn-add-to-cart" onclick="addToCart()">Add to cart</button>
         </div>
 
@@ -127,7 +164,7 @@
             <img src="Images/Donut.avif" alt="desert">
             <h3>SWEET TREATS </h3>
             <p>Indulge in our delicious sweet treats.</p>
-            <button class="btn-quick-view btn-add-to-cart sweets" data-modal-target="#sweetsModal" data-title="SWEET TREAT" data-image="Images/Donut.avif" data-description="Description">Quick View</button>
+            <button class="btn-quick-view btn-add-to-cart sweets" data-modal-target="#sweetsModal" data-title="SWEET TREAT" data-image="Images/Donut.avif" data-description="Description">Customize</button>
             <button class="btn-add-to-cart" onclick="addToCart()">Add to cart</button>
         </div>
 
@@ -136,7 +173,7 @@
             <img src="Images/Drinks.avif" alt="drinks">
             <h3>DRINKS</h3>
             <p>Refreshing beverages to quench your thirst.</p>
-            <button class="btn-quick-view btn-add-to-cart drinks" data-modal-target="#drinksModal" data-title="DRINKS" data-image="Images/drinks.avif" data-description="Description">Quick View</button>
+            <button class="btn-quick-view btn-add-to-cart drinks" data-modal-target="#drinksModal" data-title="DRINKS" data-image="Images/drinks.avif" data-description="Description">Customize</button>
             <button class="btn-add-to-cart" onclick="addToCart()">Add to cart</button>
         </div>
 
@@ -201,8 +238,8 @@
                 <input type="number" id="modalQuantity" value="1" min="1">
             </div>
            
-            <p>Total Price:<span id="modalPrice">$0</span></p>
-            <button id="modalAddToCart" class="btn-add-to-cart" onclick="addToCart()">Add to cart</button>
+            <p>Total Price:<span id="pizzaPrice">$0</span></p>
+            <button id="modalAddToCart" class="btn-add-to-cart">Add to cart</button>
             <div id="cartMessage" class="cart-message">Item added to cart.</div>
 
         </div>
@@ -219,16 +256,20 @@
             <p class="sandwitch-description" id="sandwichesDescription">Our chef's special selection of sandwiches.</p>
 
             <div class="option">
-                <label>Choose Item:</label><br>
-                <input type="checkbox" id="hamburger" name="sandwichType" value="hamburger"  data-price="8">
-                <label for="hamburger" class="option-button">Hamburger $8</label><br>
-                <input type="checkbox" id="grilled-cheese" name="sandwichType" value="grilled-cheese" data-price="7">
-                <label for="grilled-cheese" class="option-button">Grilled Cheese $7</label><br>
-                <input type="checkbox" id="club-sandwich" name="sandwichType" value="club-sandwich" data-price="9">
-                <label for="club-sandwich" class="option-button">Club Sandwich $9</label><br>
-                
-                <input type="checkbox" id="reuben" name="sandwichType" value="reuben" data-price="9">
-                <label for="reuben" class="option-button">Reuben - $9</label><br>
+                <label for="sandwichItem">Choose Item:</label>
+                <div class="sandwich-options">
+                    <input type="checkbox" id="hamburger" name="sandwichType" value="hamburger" data-price="8">
+                    <label for="hamburger" class="option-button">Hamburger <span class="price">$8</span></label>
+
+                    <input type="checkbox" id="grilled-cheese" name="sandwichType" value="grilled-cheese" data-price="7">
+                    <label for="grilled-cheese" class="option-button">Grilled Cheese <span class="price">$7</span></label>
+
+                    <input type="checkbox" id="club-sandwich" name="sandwichType" value="club-sandwich" data-price="9">
+                    <label for="club-sandwich" class="option-button">Club Sandwich <span class="price">$9</span></label>
+
+                    <input type="checkbox" id="reuben" name="sandwichType" value="reuben" data-price="9">
+                    <label for="reuben" class="option-button">Reuben <span class="price">$9</span></label>
+                </div>
             </div>
 
             <div class="option">
@@ -237,8 +278,7 @@
             </div>
             
             <p>Total Price: <span id="sandwichesPrice">$0</span></p>
-            <button onclick="calculateModalPrice()" class="btn-add-to-cart">Calculate Price</button>
-            <button class="btn-add-to-cart" onclick="addToCart()">Add to Cart</button>
+            <button class="btn-add-to-cart">Add to Cart</button>
         </div>
     </div>
 
@@ -289,7 +329,7 @@
             </div>
             
             <p>Total Price: <span id="plantbasedPrice">$0</span></p>
-            <button onclick="calculateModalPrice()" class="btn-add-to-cart">Calculate Price</button>
+            <button  class="btn-add-to-cart">Calculate Price</button>
             <button class="btn-add-to-cart" onclick="addToCart()">Add to Cart</button>
         </div>
     </div>
@@ -314,7 +354,7 @@
             </div>
 
             <p id="breadsPrice">Total Price: <span id="breadsPrice">$0</span></p>
-            <button onclick="calculateModalPrice()" class="btn-add-to-cart">Calculate Price</button>
+            <button onclick="calculateTotalPrice()" class="btn-add-to-cart">Calculate Price</button>
             <button class="btn-add-to-cart" onclick="addToCart()">Add to Cart</button>
         </div>
     </div>
@@ -441,7 +481,7 @@
             <p>Need help or have feedback? Check out our FAQs or contact us directly.</p>
         </div>
         <div class="contact-form">
-            <form action="#" method="post">
+            <form id="contactForm" action="#" method="post">
                 <div class="form-group">
                     <input type="text" id="name" name="name" required placeholder="Your Name">
                 </div>
@@ -456,6 +496,9 @@
         </div>
     </section>
 
+    <div class="contact-message" id="contactMessage" style="display: none;">
+        Your message has be sent successfully.
+    </div>
     <!-- Footer Section -->    
     <footer>
         <div class="footer-left">
@@ -499,5 +542,37 @@
         <p class="copyright">&copy; 2024 Ben's Pizza. All rights reserved.</p>
     </div>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        // Check if the user's first name is stored in localStorage
+        var firstName = localStorage.getItem("firstName");
+        if (firstName) {
+            // Update the navbar with the user's name
+            var userAccount = document.getElementById("userAccount");
+            userAccount.textContent = "Hi, " + firstName;
+            userAccount.style.display = "block"; // Show the user's name in the navbar
+        }
+
+        var contactForm = document.getElementById("contactForm");
+            var contactMessage = document.getElementById("contactMessage");
+
+            contactForm.addEventListener("submit", function(event) {
+                event.preventDefault(); // Prevent form submission
+
+                // Display success message
+                contactMessage.style.display = "block";
+
+                // Hide success message after 4 seconds
+                setTimeout(function() {
+                    contactMessage.style.display = "none";
+                }, 4000);
+
+                // Clear the form inputs
+                document.getElementById("name").value = "";
+                document.getElementById("email").value = "";
+                document.getElementById("comment-message").value = "";
+            });
+    });
+    </script>
 </body>
 </html>

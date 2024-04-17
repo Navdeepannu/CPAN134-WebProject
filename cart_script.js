@@ -1,87 +1,91 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Load cart items from localStorage and display them
-    displayCartItems();
+    // Function to display cart items
+    function displayCartItems() {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        const cartContainer = document.getElementById('cartItems');
+        cartContainer.innerHTML = ''; // Clear previous content
 
-    // Clear Cart Button
-    const clearCartBtn = document.getElementById('clearCartBtn');
-    clearCartBtn.addEventListener('click', function() {
-        clearCart();
-    });
-});
+        cartItems.forEach(item => {
+            const cartItemDiv = document.createElement('div');
+            cartItemDiv.classList.add('cart-item');
 
-// Function to load cart items from localStorage and display them
-function displayCartItems() {
-    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            // Image
+            const itemImage = document.createElement('img');
+            itemImage.src = item.image;
+            itemImage.alt = item.title;
+            cartItemDiv.appendChild(itemImage);
 
-    // Check if the cart should be cleared
-    if (shouldClearCart()) {
-        clearCart();
-        return;
+            // Details
+            const itemDetailsDiv = document.createElement('div');
+            itemDetailsDiv.classList.add('item-details');
+
+            // Title
+            const itemTitle = document.createElement('h4');
+            itemTitle.textContent = item.title;
+            itemDetailsDiv.appendChild(itemTitle);
+
+            // Description
+            const itemDescription = document.createElement('p');
+            itemDescription.textContent = item.description;
+            itemDetailsDiv.appendChild(itemDescription);
+
+            // Price
+            const itemPrice = document.createElement('p');
+            itemPrice.textContent = item.price;
+            itemDetailsDiv.appendChild(itemPrice);
+
+            // Quantity
+            const itemQuantity = document.createElement('span');
+            itemQuantity.textContent = `Quantity: ${item.quantity}`;
+            itemDetailsDiv.appendChild(itemQuantity);
+
+            // Remove Button
+            const removeButton = document.createElement('button');
+            removeButton.textContent = 'Remove';
+            removeButton.addEventListener('click', function() {
+                removeCartItem(item.title);
+            });
+            itemDetailsDiv.appendChild(removeButton);
+
+            cartItemDiv.appendChild(itemDetailsDiv);
+            cartContainer.appendChild(cartItemDiv);
+        });
+
+        // Calculate and display total price
+        calculateTotalPrice(cartItems);
     }
 
-    const cartContainer = document.getElementById('cartItems');
-    cartContainer.innerHTML = ''; // Clear previous content
+    // Function to remove item from cart
+    function removeCartItem(title) {
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        cartItems = cartItems.filter(item => item.title !== title);
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        displayCartItems(); // Update cart display
+    }
 
-    cartItems.forEach(item => {
-        const cartItemDiv = document.createElement('div');
-        cartItemDiv.classList.add('cart-item');
+    // Function to calculate total price
+    function calculateTotalPrice(cartItems) {
+        let totalPrice = 0;
+        cartItems.forEach(item => {
+            totalPrice += parseFloat(item.price.replace('$', '')) * item.quantity;
+        });
 
-        const itemImage = document.createElement('img');
-        itemImage.src = item.image;
-        itemImage.alt = item.title;
-        cartItemDiv.appendChild(itemImage);
+        const totalPriceElement = document.getElementById('totalPrice');
+        totalPriceElement.textContent = `$${totalPrice.toFixed(2)}`;
+    }
 
-        const itemDetailsDiv = document.createElement('div');
-        itemDetailsDiv.classList.add('item-details');
+    // Load cart items and display them
+    displayCartItems();
 
-        const itemTitle = document.createElement('h4');
-        itemTitle.textContent = item.title;
-        itemDetailsDiv.appendChild(itemTitle);
-
-        const itemDescription = document.createElement('p');
-        itemDescription.textContent = item.description;
-        itemDetailsDiv.appendChild(itemDescription);
-
-        const itemPrice = document.createElement('p');
-        itemPrice.textContent = item.price;
-        itemDetailsDiv.appendChild(itemPrice);
-
-        cartItemDiv.appendChild(itemDetailsDiv);
-
-        cartContainer.appendChild(cartItemDiv);
+    // Add event listener to quantity input field in the modal
+    const modalQuantityInput = document.getElementById('modalQuantity');
+    modalQuantityInput.addEventListener('input', function() {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        const selectedItemIndex = cartItems.findIndex(item => item.title === document.getElementById('modalTitle').textContent);
+        if (selectedItemIndex !== -1) {
+            cartItems[selectedItemIndex].quantity = parseInt(this.value) || 1;
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            displayCartItems(); // Update cart display
+        }
     });
-
-    // Calculate and display total price
-    calculateTotalPrice(cartItems);
-}
-
-// Function to check if the cart should be cleared
-function shouldClearCart() {
-    // Check if the cart was cleared
-    return localStorage.getItem('clearCart') === 'true';
-}
-
-// Function to clear the cart
-function clearCart() {
-    // Remove all cart items from the cartItems container
-    const cartItems = document.getElementById('cartItems');
-    cartItems.innerHTML = '';
-
-    // Reset the total price to $0
-    document.getElementById('totalPrice').textContent = '$0';
-
-    // Clear the localStorage
-    localStorage.removeItem('cartItems');
-    localStorage.removeItem('clearCart');
-}
-
-// Function to calculate and display total price
-function calculateTotalPrice(cartItems) {
-    let totalPrice = 0;
-    cartItems.forEach(item => {
-        totalPrice += parseFloat(item.price.replace('$', ''));
-    });
-
-    const totalPriceElement = document.getElementById('totalPrice');
-    totalPriceElement.textContent = `$${totalPrice.toFixed(2)}`;
-}
+});
